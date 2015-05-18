@@ -37,11 +37,11 @@ Here's an example of how the entries should look like in your `Info.plist` file:
 Just create a new instance of `A0FacebookAuthenticator`
 
 ```objc
-  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
+A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
 ```
 
 ```swift
-    let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
+let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
 ```
 
 and register it with your instance of `A0Lock`
