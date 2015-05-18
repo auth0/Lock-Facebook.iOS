@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+
+target 'Lock-Facebook', :exclusive => true do
+  pod "Lock-Facebook", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
