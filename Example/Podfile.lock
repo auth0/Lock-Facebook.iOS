@@ -82,12 +82,12 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - Lock-Facebook (1.0.0):
+  - Lock-Facebook (2.0.0):
     - CocoaLumberjack (~> 2.0)
     - FBSDKCoreKit (~> 4.0)
     - FBSDKLoginKit (~> 4.0)
     - Lock/Core (~> 1.11)
-  - Lock/Core (1.11.3):
+  - Lock/Core (1.12.0):
     - AFNetworking (~> 2.5)
     - CocoaLumberjack (~> 2.0.0-rc)
     - ISO8601DateFormatter (~> 0.7)
@@ -112,8 +112,8 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: 2ab38b864235867d45fd0d05ae4dfc7c24afa485
-  Lock-Facebook: eb25137896a33f215d5e6e4e296b66266e731e35
+  Lock: ca0a339e418793d13842c4d901c7a5f8b698d87e
+  Lock-Facebook: 6ef9b899e23ceea73a837bba440856424b8c6892
   Specta: 96fe05fe5c7348b5223f85e862904f6e832abb14
 
 COCOAPODS: 0.37.1
