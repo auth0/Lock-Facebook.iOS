@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Pod/Classes/*.h'
   s.source_files = 'Pod/Classes/*.{h,m}'
+  s.module_name = 'LockFacebook'
 
   s.dependency 'FBSDKLoginKit', '~> 4.0'
   s.dependency 'FBSDKCoreKit', '~> 4.0'
