@@ -22,7 +22,8 @@
 
 #import "A0FacebookAuthenticator.h"
 
-#import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <libextobjc/EXTScope.h>
 
 #import <Lock/A0Errors.h>
@@ -36,6 +37,7 @@
 
 @interface A0FacebookAuthenticator ()
 @property (strong, nonatomic) NSArray *permissions;
+@property (strong, nonatomic) FBSDKLoginManager *loginManager;
 @end
 
 @implementation A0FacebookAuthenticator
@@ -48,10 +50,11 @@ AUTH0_DYNAMIC_LOGGER_METHODS
         if (permissions) {
             NSMutableSet *perms = [[NSMutableSet alloc] initWithArray:permissions];
             [perms addObject:@"public_profile"];
-            self.permissions = [perms allObjects];
+            _permissions = [perms allObjects];
         } else {
-            self.permissions = @[@"public_profile"];
+            _permissions = @[@"public_profile"];
         }
+        _loginManager = [[FBSDKLoginManager alloc] init];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationActiveNotification:) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
     return self;
@@ -61,8 +64,13 @@ AUTH0_DYNAMIC_LOGGER_METHODS
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions {
+    A0LogVerbose(@"Notifying FB SDK that app launched with options %@", launchOptions);
+    [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:launchOptions];
+}
+
 - (void)applicationActiveNotification:(NSNotification *)notification {
-    [FBAppCall handleDidBecomeActive];
+    [FBSDKAppEvents activateApp];
 }
 
 + (A0FacebookAuthenticator *)newAuthenticatorWithPermissions:(NSArray *)permissions {
@@ -80,45 +88,43 @@ AUTH0_DYNAMIC_LOGGER_METHODS
 }
 
 - (void)clearSessions {
-    [[FBSession activeSession] closeAndClearTokenInformation];
+    [self.loginManager logOut];
 }
 
 - (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication {
     A0LogVerbose(@"Received url %@ from source application %@", url, sourceApplication);
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    return [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication] openURL:url sourceApplication:sourceApplication annotation:nil];
 }
 
 -(void)authenticateWithParameters:(A0AuthParameters *)parameters success:(void (^)(A0UserProfile *, A0Token *))success failure:(void (^)(NSError *))failure {
     A0LogVerbose(@"Starting Facebook authentication...");
-    FBSession *active = [FBSession activeSession];
-    if (active.state == FBSessionStateOpen || active.state == FBSessionStateOpenTokenExtended) {
-        A0LogDebug(@"Found FB Active Session");
-        [self executeAuthenticationWithCredentials:[[A0IdentityProviderCredentials alloc] initWithAccessToken:active.accessTokenData.accessToken] parameters:parameters success:success failure:failure];
+    void (^failureBlock)(NSError *) = failure ?: ^(NSError *error){};
+    FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
+    if (accessToken) {
+        A0LogDebug(@"Found current FB access token");
+        [self executeAuthenticationWithCredentials:[[A0IdentityProviderCredentials alloc] initWithAccessToken:accessToken.tokenString] parameters:parameters success:success failure:failure];
     } else {
         @weakify(self);
         NSArray *permissions = [self permissionsFromParameters:parameters];
-        [FBSession openActiveSessionWithReadPermissions:permissions allowLoginUI:YES completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            [self.loginManager logInWithReadPermissions:permissions handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
             if (error) {
-                if (failure) {
-                    A0LogError(@"Failed to open FB Session with error %@", error);
-                    NSError *errorParam = [FBErrorUtility errorCategoryForError:error] == FBErrorCategoryUserCancelled ? [A0Errors facebookCancelled] : error;
-                    failure(errorParam);
-                }
+                A0LogError(@"Failed to open FB Session with error %@", error);
+                failureBlock(error);
+            } else if (result.isCancelled) {
+                A0LogError(@"FB login was cancelled");
+                failureBlock([A0Errors facebookCancelled]);
             } else {
-                switch (status) {
-                    case FBSessionStateOpen: {
-                        A0LogDebug(@"Successfully opened FB Session");
-                        @strongify(self);
-                        [self executeAuthenticationWithCredentials:[[A0IdentityProviderCredentials alloc] initWithAccessToken:session.accessTokenData.accessToken] parameters:parameters success:success failure:failure];
-                        break;
-                    }
-                    case FBSessionStateClosedLoginFailed:
-                        A0LogError(@"User cancelled FB Login");
-                        if (failure) {
-                            failure([A0Errors facebookCancelled]);
-                        }
-                    default:
-                        break;
+                if (result.declinedPermissions.count != 0) {
+                    A0LogDebug(@"User declined some of the permissions %@", result.declinedPermissions);
+                    failureBlock([A0Errors facebookCancelled]);
+                } else {
+                    A0LogDebug(@"Successfully opened FB Session");
+                    @strongify(self);
+                    A0IdentityProviderCredentials *credentials = [[A0IdentityProviderCredentials alloc] initWithAccessToken:result.token.tokenString];
+                    [self executeAuthenticationWithCredentials:credentials
+                                                    parameters:parameters
+                                                       success:success
+                                                       failure:failure];
                 }
             }
         }];

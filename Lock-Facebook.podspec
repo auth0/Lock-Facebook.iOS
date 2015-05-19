@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Pod/Classes/*.h'
   s.source_files = 'Pod/Classes/*.{h,m}'
 
-  s.dependency 'Facebook-iOS-SDK', '~> 3.15'
+  s.dependency 'FBSDKLoginKit', '~> 4.0'
+  s.dependency 'FBSDKCoreKit', '~> 4.0'
   s.dependency 'Lock/Core', '~> 1.11'
 end
