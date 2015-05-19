@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   s.dependency 'FBSDKLoginKit', '~> 4.0'
   s.dependency 'FBSDKCoreKit', '~> 4.0'
   s.dependency 'Lock/Core', '~> 1.11'
+  s.dependency 'CocoaLumberjack', '~> 2.0'
 end
