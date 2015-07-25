@@ -1,5 +1,6 @@
+reference: http://www.objc.io/issue-6/travis-ci.html
 language: objective-c
-podfile: Example/Podfile
+osx_image: xcode6.4
 before_install:
 - bundle install
 install:

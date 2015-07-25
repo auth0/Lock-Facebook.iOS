@@ -20,31 +20,31 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - Bolts (1.1.5):
-    - Bolts/AppLinks (= 1.1.5)
-    - Bolts/Tasks (= 1.1.5)
-  - Bolts/AppLinks (1.1.5):
+  - Bolts (1.2.0):
+    - Bolts/AppLinks (= 1.2.0)
+    - Bolts/Tasks (= 1.2.0)
+  - Bolts/AppLinks (1.2.0):
     - Bolts/Tasks
-  - Bolts/Tasks (1.1.5)
-  - CocoaLumberjack (2.0.0):
-    - CocoaLumberjack/Default (= 2.0.0)
-    - CocoaLumberjack/Extensions (= 2.0.0)
-  - CocoaLumberjack/Core (2.0.0)
-  - CocoaLumberjack/Default (2.0.0):
+  - Bolts/Tasks (1.2.0)
+  - CocoaLumberjack (2.0.1):
+    - CocoaLumberjack/Default (= 2.0.1)
+    - CocoaLumberjack/Extensions (= 2.0.1)
+  - CocoaLumberjack/Core (2.0.1)
+  - CocoaLumberjack/Default (2.0.1):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0):
+  - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
   - Expecta (1.0.0)
-  - FBSDKCoreKit (4.1.0):
+  - FBSDKCoreKit (4.4.0):
     - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.1.0)
-    - FBSDKCoreKit/no-arc (= 4.1.0)
-  - FBSDKCoreKit/arc (4.1.0):
+    - FBSDKCoreKit/arc (= 4.4.0)
+    - FBSDKCoreKit/no-arc (= 4.4.0)
+  - FBSDKCoreKit/arc (4.4.0):
     - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.1.0):
+  - FBSDKCoreKit/no-arc (4.4.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.1.0):
+  - FBSDKLoginKit (4.4.0):
     - FBSDKCoreKit
   - ISO8601DateFormatter (0.7)
   - libextobjc (0.4.1):
@@ -82,14 +82,14 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - Lock-Facebook (2.0.1):
+  - Lock-Facebook (2.0.2):
     - CocoaLumberjack (~> 2.0)
     - FBSDKCoreKit (~> 4.0)
     - FBSDKLoginKit (~> 4.0)
     - Lock/Core (~> 1.11)
-  - Lock/Core (1.12.0):
+  - Lock/Core (1.16.1):
     - AFNetworking (~> 2.5)
-    - CocoaLumberjack (~> 2.0.0-rc)
+    - CocoaLumberjack (~> 2.0)
     - ISO8601DateFormatter (~> 0.7)
     - libextobjc (~> 0.4)
   - Specta (1.0.0)
@@ -105,15 +105,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  Bolts: aac24961496d504aa56fc267cde95162a71bac39
-  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
-  FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
+  FBSDKCoreKit: 75bdd75c980e811db218488d99dd93b7740f4474
+  FBSDKLoginKit: 02a9254a4c132412fa03577b0d53e936d068a7fb
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: ca0a339e418793d13842c4d901c7a5f8b698d87e
-  Lock-Facebook: 02c315b7d15d6fed20c7a2ea8a5e5e27c072483a
+  Lock: dff57878cd3007ad9b3eae932444f225caa1b54f
+  Lock-Facebook: 03bf60320d649bdfc33331f280ff5ef805941c60
   Specta: 96fe05fe5c7348b5223f85e862904f6e832abb14
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.38.0
