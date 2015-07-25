@@ -1,14 +1,13 @@
 language: objective-c
 podfile: Example/Podfile
 before_install:
-- gem install cocoapods --no-rdoc --no-ri --no-document
-- pod install --project-directory=Example
+- bundle install
 install:
-- gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+- bundle exec pod install --project-directory=Example
 script:
 - set -o pipefail && xcodebuild test -workspace Example/Lock-Facebook.xcworkspace
-  -scheme Lock-Facebook -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
-- pod lib lint --quick
+  -scheme Lock-Facebook -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | bundle exec xcpretty -c
+- bundle exec pod lib lint --quick
 notifications:
   slack:
     secure: FoZu3c7QxP2jDgzSyyl1NRbk5MUFN38rsPJQG1xOJioqOrO1XPdknBneLn/bGDVOWMWsY9JNM7yC0tqGJiXWUxzbL5ixLJb6/fc6OQdLyJ4jEDsSt+UMnl2CZdXxynndSWdz/KBrvmuj+GG2oqap5X1/PCXbH6XIPTLfeC/n9poTN7nSIsU9FaLybEQVvqhjV7o1Ku+w1FqZS7c3EUK25xv0uA5WQFOBf0qAxI5hRej9oq2pG6gPtQ5xqvOot12PH1/W3ciB6gIh0wgNdZ1JH3YPEpBjPAFpFhrcGdh6iJOdmlZVvyKLUDl2qT4vatSUC87aPCdgWSrEPjnDBWQ/qrUFdwaFP8L72XfvkB18Vn72DDHj8yWU+lFnr04FWgM9kIva319vyJdX4ftNFhYwGANv08w9vzqzgz9Ke88JaGrpHl0zkz8G5qOAIHmh5sA76DeqUU5Lffha2pcbyCpt4+8Z/Iye51H8kDSxGhKkgkrdOOYm86aRJ/REED8kTaOW76xAKqUPEnZxDcUFImzdp9u+tZuFr26LZSf4ukC4XU41rEYbjYsErKSCmLEJg8QJlTyUblpQjALe0K9FdtzPhDG68CvdrobyorhZlOFEIk2/MU30Fdwu072qawAiyOZXgLE1ycoyMtUXtoIVeA4LY5d0aQHFUTYtCiIGgrxe2dk=
