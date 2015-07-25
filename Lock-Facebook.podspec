@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Lock-Facebook"
-  s.version          = "2.0.1"
+  s.version          = "2.0.2"
   s.summary          = "Facebook Native Integration for Auth0 Lock"
   s.description      = <<-DESC
                       [![Auth0](https://i.cloudup.com/1vaSVATKTL.png)](http://auth0.com)
