@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.0.2](https://github.com/auth0/Lock-Facebook.iOS/tree/2.0.2) (2015-07-25)
+
+[Full Changelog](https://github.com/auth0/Lock-Facebook.iOS/compare/2.0.1...2.0.2)
+
+**Merged pull requests:**
+
+- Fix permissions for authenticator built with -init  [\#3](https://github.com/auth0/Lock-Facebook.iOS/pull/3) ([hzalaz](https://github.com/hzalaz))
+
 ## [2.0.1](https://github.com/auth0/Lock-Facebook.iOS/tree/2.0.1) (2015-05-19)
 
 [Full Changelog](https://github.com/auth0/Lock-Facebook.iOS/compare/2.0.0...2.0.1)
