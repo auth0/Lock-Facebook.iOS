@@ -44,6 +44,10 @@
 
 AUTH0_DYNAMIC_LOGGER_METHODS
 
+- (instancetype)init {
+    return [self initWithPermissions:nil];
+}
+
 - (instancetype)initWithPermissions:(NSArray *)permissions {
     self = [super init];
     if (self) {

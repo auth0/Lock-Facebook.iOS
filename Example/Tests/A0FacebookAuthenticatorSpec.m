@@ -31,25 +31,43 @@ SpecBegin(A0FacebookAuthenticator)
 
 describe(@"A0FacebookAuthenticator", ^{
 
-    __block A0FacebookAuthenticator *authenticator;
-
     describe(@"initialization", ^{
 
-        it(@"should have a default permission", ^{
-            authenticator = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
-            expect(authenticator.permissions).to.beSupersetOf(@[@"public_profile"]);
+        sharedExamples(@"has permissions", ^(NSDictionary *data) {
+            A0FacebookAuthenticator *authenticator = data[@"facebook"];
+
+            it(@"should have a default permission with default initializer", ^{
+                expect(authenticator.permissions).to.beSupersetOf(data[@"permissions"]);
+            });
         });
 
-        it(@"should initialize with specific permissions", ^{
-            authenticator = [A0FacebookAuthenticator newAuthenticatorWithPermissions:@[@"public_profile", @"email"]];
-            expect(authenticator.permissions).to.beSupersetOf(@[@"public_profile", @"email"]);
-        });
+        itShouldBehaveLike(@"has permissions", @{
+                                                 @"facebook": [[A0FacebookAuthenticator alloc] init],
+                                                 @"permissions": @[@"public_profile"],
+                                                 });
+        itShouldBehaveLike(@"has permissions", @{
+                                                 @"facebook": [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions],
+                                                 @"permissions": @[@"public_profile"],
+                                                 });
 
-        it(@"should always use default permission", ^{
-            authenticator = [A0FacebookAuthenticator newAuthenticatorWithPermissions:@[@"email"]];
-            expect(authenticator.permissions).to.beSupersetOf(@[@"public_profile", @"email"]);
-        });
+        itShouldBehaveLike(@"has permissions", @{
+                                                 @"facebook": [A0FacebookAuthenticator newAuthenticatorWithPermissions:@[@"public_profile", @"email"]],
+                                                 @"permissions": @[@"public_profile", @"email"],
+                                                 });
+        itShouldBehaveLike(@"has permissions", @{
+                                                 @"facebook": [A0FacebookAuthenticator newAuthenticatorWithPermissions:@[@"email"]],
+                                                 @"permissions": @[@"public_profile", @"email"],
+                                                 });
 
+        itShouldBehaveLike(@"has permissions", @{
+                                                 @"facebook": [A0FacebookAuthenticator newAuthenticatorWithPermissions:nil],
+                                                 @"permissions": @[@"public_profile"],
+                                                 });
+
+        itShouldBehaveLike(@"has permissions", @{
+                                                 @"facebook": [A0FacebookAuthenticator newAuthenticatorWithPermissions:@[]],
+                                                 @"permissions": @[@"public_profile"],
+                                                 });
     });
 });
 
