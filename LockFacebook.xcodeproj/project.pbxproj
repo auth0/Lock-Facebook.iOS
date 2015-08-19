@@ -16,6 +16,8 @@
 		5F5D92491B84027F00E1887B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D92471B84027F00E1887B /* Main.storyboard */; };
 		5F5D924B1B84027F00E1887B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D924A1B84027F00E1887B /* Images.xcassets */; };
 		5F5D924E1B84027F00E1887B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F5D924C1B84027F00E1887B /* LaunchScreen.xib */; };
+		5F5D92631B8407A900E1887B /* A0FacebookAuthenticator.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5D92611B8407A900E1887B /* A0FacebookAuthenticator.h */; };
+		5F5D92641B8407A900E1887B /* A0FacebookAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5D92621B8407A900E1887B /* A0FacebookAuthenticator.m */; };
 		88124C927A39128B89FCA7A4 /* libPods-LockFacebookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A14F91A8A7C3E254B148BAAC /* libPods-LockFacebookTests.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		5F5D92481B84027F00E1887B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F5D924A1B84027F00E1887B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5F5D924D1B84027F00E1887B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5F5D92611B8407A900E1887B /* A0FacebookAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0FacebookAuthenticator.h; sourceTree = "<group>"; };
+		5F5D92621B8407A900E1887B /* A0FacebookAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0FacebookAuthenticator.m; sourceTree = "<group>"; };
 		6AB6D1D72C98EE803DF5EA77 /* Pods-LockFacebookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebookTests/Pods-LockFacebookTests.release.xcconfig"; sourceTree = "<group>"; };
 		A14F91A8A7C3E254B148BAAC /* libPods-LockFacebookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LockFacebookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DC276258ABC95B26AE391E /* Pods-LockFacebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebook.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebook/Pods-LockFacebook.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 		5F5D921D1B83FC5D00E1887B /* LockFacebook */ = {
 			isa = PBXGroup;
 			children = (
+				5F5D92611B8407A900E1887B /* A0FacebookAuthenticator.h */,
+				5F5D92621B8407A900E1887B /* A0FacebookAuthenticator.m */,
 				5F5D92201B83FC5D00E1887B /* LockFacebook.h */,
 				5F5D921E1B83FC5D00E1887B /* Supporting Files */,
 			);
@@ -188,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F5D92211B83FC5D00E1887B /* LockFacebook.h in Headers */,
+				5F5D92631B8407A900E1887B /* A0FacebookAuthenticator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F5D92641B8407A900E1887B /* A0FacebookAuthenticator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
