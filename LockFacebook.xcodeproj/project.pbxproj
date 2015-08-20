@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		24AB8C613DB0AA1F672EF2D6 /* Pods_LockFacebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7471BF74477CDB4511B12479 /* Pods_LockFacebookTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		442D001E8EC95F81AEEF512F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127E6ABBD35C822BBBF1018 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5F28A0CA1B86580200A2DC75 /* A0FacebookProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F28A0C81B86580200A2DC75 /* A0FacebookProvider.h */; };
+		5F28A0CB1B86580200A2DC75 /* A0FacebookProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F28A0C91B86580200A2DC75 /* A0FacebookProvider.m */; };
+		5F28A0CD1B865A1E00A2DC75 /* A0FacebookProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F28A0CC1B865A1E00A2DC75 /* A0FacebookProviderSpec.m */; };
 		5F5D92211B83FC5D00E1887B /* LockFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5D92201B83FC5D00E1887B /* LockFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F5D92271B83FC5D00E1887B /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5D921B1B83FC5D00E1887B /* LockFacebook.framework */; };
 		5F5D92401B84027F00E1887B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5D923F1B84027F00E1887B /* main.m */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		0B182A098EC6FC614F679EE9 /* Pods-LockFacebookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebookTests/Pods-LockFacebookTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F28A0C81B86580200A2DC75 /* A0FacebookProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0FacebookProvider.h; sourceTree = "<group>"; };
+		5F28A0C91B86580200A2DC75 /* A0FacebookProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0FacebookProvider.m; sourceTree = "<group>"; };
+		5F28A0CC1B865A1E00A2DC75 /* A0FacebookProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0FacebookProviderSpec.m; sourceTree = "<group>"; };
 		5F5D921B1B83FC5D00E1887B /* LockFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F5D921F1B83FC5D00E1887B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F5D92201B83FC5D00E1887B /* LockFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockFacebook.h; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 				5F5D92621B8407A900E1887B /* A0FacebookAuthenticator.m */,
 				5F5D92201B83FC5D00E1887B /* LockFacebook.h */,
 				5F5D921E1B83FC5D00E1887B /* Supporting Files */,
+				5F28A0C81B86580200A2DC75 /* A0FacebookProvider.h */,
+				5F28A0C91B86580200A2DC75 /* A0FacebookProvider.m */,
 			);
 			path = LockFacebook;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				5F5D922B1B83FC5D00E1887B /* Supporting Files */,
+				5F28A0CC1B865A1E00A2DC75 /* A0FacebookProviderSpec.m */,
 			);
 			path = LockFacebookTests;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 			files = (
 				5F5D92211B83FC5D00E1887B /* LockFacebook.h in Headers */,
 				5F5D92631B8407A900E1887B /* A0FacebookAuthenticator.h in Headers */,
+				5F28A0CA1B86580200A2DC75 /* A0FacebookProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F5D92641B8407A900E1887B /* A0FacebookAuthenticator.m in Sources */,
+				5F28A0CB1B86580200A2DC75 /* A0FacebookProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F28A0CD1B865A1E00A2DC75 /* A0FacebookProviderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
