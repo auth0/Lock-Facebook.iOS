@@ -25,15 +25,16 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <libextobjc/EXTScope.h>
-
 #import <Lock/A0Errors.h>
 #import <Lock/A0Strategy.h>
 #import <Lock/A0Application.h>
 #import <Lock/A0APIClient.h>
 #import <Lock/A0IdentityProviderCredentials.h>
 #import <Lock/A0AuthParameters.h>
-#import <Lock/NSObject+A0APIClientProvider.h>
-#import <Lock/A0Logging.h>
+
+#define A0LogError(fmt, ...)
+#define A0LogVerbose(fmt, ...)
+#define A0LogDebug(fmt, ...)
 
 @interface A0FacebookAuthenticator ()
 @property (strong, nonatomic) NSArray *permissions;
@@ -41,8 +42,6 @@
 @end
 
 @implementation A0FacebookAuthenticator
-
-AUTH0_DYNAMIC_LOGGER_METHODS
 
 - (instancetype)init {
     return [self initWithPermissions:nil];
@@ -148,12 +147,19 @@ AUTH0_DYNAMIC_LOGGER_METHODS
                                   parameters:(A0AuthParameters *)parameters
                                      success:(void(^)(A0UserProfile *, A0Token *))success
                                      failure:(void(^)(NSError *))failure {
-    A0APIClient *client = [self a0_apiClientFromProvider:self.clientProvider];
+    A0APIClient *client = [self apiClient];
     [client authenticateWithSocialConnectionName:self.identifier
                                      credentials:credentials
                                       parameters:parameters
                                          success:success
                                          failure:failure];
+}
+
+- (A0APIClient *)apiClient {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated"
+    return [self.clientProvider apiClient] ?: [A0APIClient sharedClient];
+#pragma GCC diagnostic pop
 }
 
 @end

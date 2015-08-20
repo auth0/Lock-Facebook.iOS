@@ -34,17 +34,17 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
-  - Expecta (1.0.0)
-  - FBSDKCoreKit (4.4.0):
+  - Expecta (1.0.2)
+  - FBSDKCoreKit (4.5.1):
     - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.4.0)
-    - FBSDKCoreKit/no-arc (= 4.4.0)
-  - FBSDKCoreKit/arc (4.4.0):
+    - FBSDKCoreKit/arc (= 4.5.1)
+    - FBSDKCoreKit/no-arc (= 4.5.1)
+  - FBSDKCoreKit/arc (4.5.1):
     - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.4.0):
+  - FBSDKCoreKit/no-arc (4.5.1):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.4.0):
+  - FBSDKLoginKit (4.5.1):
     - FBSDKCoreKit
   - ISO8601DateFormatter (0.7)
   - libextobjc (0.4.1):
@@ -82,38 +82,38 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - Lock-Facebook (2.0.2):
-    - CocoaLumberjack (~> 2.0)
-    - FBSDKCoreKit (~> 4.0)
-    - FBSDKLoginKit (~> 4.0)
-    - Lock/Core (~> 1.11)
-  - Lock/Core (1.16.1):
+  - Lock/Core (1.17.0):
     - AFNetworking (~> 2.5)
     - CocoaLumberjack (~> 2.0)
     - ISO8601DateFormatter (~> 0.7)
     - libextobjc (~> 0.4)
-  - Specta (1.0.0)
+  - OCHamcrest (4.1.1)
+  - OCMockito (1.4.0):
+    - OCHamcrest (~> 4.0)
+  - Specta (1.0.3)
 
 DEPENDENCIES:
+  - CocoaLumberjack (~> 2.0)
   - Expecta
-  - Lock-Facebook (from `../`)
+  - FBSDKCoreKit (~> 4.0)
+  - FBSDKLoginKit (~> 4.0)
+  - Lock/Core (~> 1.11)
+  - OCHamcrest
+  - OCMockito
   - Specta
-
-EXTERNAL SOURCES:
-  Lock-Facebook:
-    :path: "../"
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   Bolts: d176cb1e0012175589e389a9db49b85e27787576
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
-  Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  FBSDKCoreKit: 75bdd75c980e811db218488d99dd93b7740f4474
-  FBSDKLoginKit: 02a9254a4c132412fa03577b0d53e936d068a7fb
+  Expecta: 54e8a3530add08f4f0208c111355eda7cde74a53
+  FBSDKCoreKit: f335eaf6865e1e1597dee1debfb533045500da47
+  FBSDKLoginKit: 225cc9a388a92916ee3f3bb14422017b6e44b65b
   ISO8601DateFormatter: ab926648eebe497f4d167c0fd083992f959f1274
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
-  Lock: dff57878cd3007ad9b3eae932444f225caa1b54f
-  Lock-Facebook: 03bf60320d649bdfc33331f280ff5ef805941c60
-  Specta: 96fe05fe5c7348b5223f85e862904f6e832abb14
+  Lock: 7b7d1cdf49abfe73837730c60e5deac563cdc34f
+  OCHamcrest: 6f03ffa81d12feab872638490a44ab0a6d3aca10
+  OCMockito: 4981140c9a9ec06c31af40f636e3c0f25f27e6b2
+  Specta: cf3e4188cf35375c3ee2cd03f8db8f1f4ef98234
 
-COCOAPODS: 0.38.0
+COCOAPODS: 0.38.2
