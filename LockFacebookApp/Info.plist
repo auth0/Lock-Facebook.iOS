@@ -18,6 +18,19 @@
 	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+			<key>CFBundleURLName</key>
+			<string>facebook</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb515369438565638</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -36,5 +49,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Auth0ClientId</key>
+	<string>U5MhUrbyQHSVWjlEqZSTCBUFABLbJAS3</string>
+	<key>Auth0Domain</key>
+	<string>overmind.auth0.com</string>
+	<key>FacebookAppID</key>
+	<string>515369438565638</string>
+	<key>FacebookDisplayName</key>
+	<string>Auth0</string>
 </dict>
 </plist>

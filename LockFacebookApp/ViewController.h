@@ -24,6 +24,7 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)loginWithFacebook:(id)sender;
 
 @end
 

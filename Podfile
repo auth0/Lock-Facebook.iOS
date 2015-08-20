@@ -1,3 +1,5 @@
+use_frameworks!
+
 target 'LockFacebook', :exclusive => true do
   pod 'FBSDKLoginKit', '~> 4.0'
   pod 'FBSDKCoreKit', '~> 4.0'

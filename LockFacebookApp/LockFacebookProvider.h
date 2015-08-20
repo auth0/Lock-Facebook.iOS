@@ -1,4 +1,4 @@
-// LockFacebook.h
+// LockFacebookProvider.h
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -21,11 +21,14 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import <Lock/A0Lock.h>
+#import <LockFacebook/LockFacebook.h>
 
-//! Project version number for LockFacebook.
-FOUNDATION_EXPORT double LockFacebookVersionNumber;
+@interface LockFacebookProvider : NSObject
 
-//! Project version string for LockFacebook.
-FOUNDATION_EXPORT const unsigned char LockFacebookVersionString[];
+@property (strong, readonly, nonatomic) A0Lock *lock;
+@property (strong, readonly, nonatomic) A0FacebookAuthenticator *authenticator;
 
-#import <LockFacebook/A0FacebookAuthenticator.h>
++ (instancetype)sharedInstance;
+
+@end

@@ -1,4 +1,4 @@
-// LockFacebook.h
+// LockFacebookProvider.m
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -20,12 +20,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+#import "LockFacebookProvider.h"
 
-//! Project version number for LockFacebook.
-FOUNDATION_EXPORT double LockFacebookVersionNumber;
+@implementation LockFacebookProvider
 
-//! Project version string for LockFacebook.
-FOUNDATION_EXPORT const unsigned char LockFacebookVersionString[];
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _lock = [A0Lock newLock];
+        _authenticator = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
+        _authenticator.clientProvider = _lock;
+    }
+    return self;
+}
 
-#import <LockFacebook/A0FacebookAuthenticator.h>
++ (instancetype)sharedInstance {
+    static LockFacebookProvider *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[LockFacebookProvider alloc] init];
+    });
+    return instance;
+}
+@end

@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 #import "AppDelegate.h"
+#import "LockFacebookProvider.h"
 
 @interface AppDelegate ()
 
@@ -30,8 +31,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[[LockFacebookProvider sharedInstance] authenticator] applicationLaunchedWithOptions:launchOptions];
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[[LockFacebookProvider sharedInstance] authenticator] handleURL:url sourceApplication:sourceApplication];
+}
 @end

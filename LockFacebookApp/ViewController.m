@@ -21,6 +21,8 @@
 // THE SOFTWARE.
 
 #import "ViewController.h"
+#import "LockFacebookProvider.h"
+#import <Lock/Lock.h>
 
 @interface ViewController ()
 
@@ -32,4 +34,16 @@
     [super viewDidLoad];
 }
 
+- (IBAction)loginWithFacebook:(id)sender {
+    A0FacebookAuthenticator *authenticator = [[LockFacebookProvider sharedInstance] authenticator];
+    A0AuthParameters *parameters = [A0AuthParameters newDefaultParams];
+    [authenticator authenticateWithParameters:parameters
+                                      success:^(A0UserProfile *profile, A0Token *token){
+                                          NSLog(@"Logged in user with email %@", profile.email);
+                                          NSLog(@"JWT: %@", token.idToken);
+                                      }
+                                      failure:^(NSError *error){
+                                          NSLog(@"Failed to login with error %@", error);
+                                      }];
+}
 @end
