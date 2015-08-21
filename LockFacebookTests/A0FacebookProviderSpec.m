@@ -41,7 +41,10 @@
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
 @property (strong, nonatomic) NSArray *permissions;
 @property (copy, nonatomic) FBSDKAccessToken *(^currentToken)();
-- (nonnull instancetype)initWithLoginManager:(FBSDKLoginManager * __nonnull)loginManager permissions:(NSArray * __nonnull)permissions;
+@property (weak, nonatomic) FBSDKApplicationDelegate *applicationDelegate;
+- (nonnull instancetype)initWithLoginManager:(FBSDKLoginManager * __nonnull)loginManager
+                         applicationDelegate:(FBSDKApplicationDelegate * __nonnull)applicationDelegate
+                                 permissions:(NSArray * __nonnull)permissions;
 @end
 
 SpecBegin(A0FacebookProvider)
@@ -62,9 +65,11 @@ FBSDKAccessToken *(^fbTokenWithToken)(NSString *) = ^(NSString *token) {
 
 __block A0FacebookProvider *facebook;
 __block FBSDKLoginManager *loginManager;
+__block FBSDKApplicationDelegate *delegate;
 
 beforeEach(^{
     loginManager = mock(FBSDKLoginManager.class);
+    delegate = mock(FBSDKApplicationDelegate.class);
 });
 
 describe(@"initialisation", ^{
@@ -77,7 +82,7 @@ describe(@"initialisation", ^{
         beforeEach(^{
             manager = data[@"manager"];
             permissions = data[@"permissions"];
-            provider = [[A0FacebookProvider alloc] initWithLoginManager:manager permissions:permissions];
+            provider = [[A0FacebookProvider alloc] initWithLoginManager:manager applicationDelegate:delegate permissions:permissions];
         });
 
         it(@"should store manager", ^{
@@ -102,6 +107,7 @@ describe(@"initialisation", ^{
         it(@"should have a current token block", ^{
             expect(provider.currentToken).toNot.beNil();
         });
+
     });
 
     itShouldBehaveLike(@"valid provider", ^{
@@ -167,7 +173,9 @@ describe(@"authenticate", ^{
     };
 
     beforeEach(^{
-        facebook = [[A0FacebookProvider alloc] initWithLoginManager:loginManager permissions:defaultPermissions];
+        facebook = [[A0FacebookProvider alloc] initWithLoginManager:loginManager
+                                                applicationDelegate:delegate
+                                                        permissions:defaultPermissions];
         facebook.currentToken = ^FBSDKAccessToken *{ return nil; };
     });
 
@@ -265,5 +273,32 @@ describe(@"authenticate", ^{
         });
     });
 
+});
+
+describe(@"lifecycle", ^{
+
+    beforeEach(^{
+        facebook = [[A0FacebookProvider alloc] initWithLoginManager:loginManager
+                                                applicationDelegate:delegate
+                                                        permissions:@[]];
+    });
+
+    it(@"should logout", ^{
+        [facebook clearSession];
+        [verify(loginManager) logOut];
+    });
+
+    it(@"should handle URL", ^{
+        NSURL *url = mock(NSURL.class);
+        NSString *sourceApplication = @"MyApp";
+        [facebook handleURL:url sourceApplication:sourceApplication];
+        [verify(delegate) application:HC_anything() openURL:url sourceApplication:sourceApplication annotation:anything()];
+    });
+
+    it(@"should notify of app launch", ^{
+        NSDictionary *options = @{};
+        [facebook applicationLaunchedWithOptions:options];
+        [verify(delegate) application:anything() didFinishLaunchingWithOptions:options];
+    });
 });
 SpecEnd

@@ -26,23 +26,31 @@
 #import <FBSDKLoginKit/FBSDKLoginManagerLoginResult.h>
 #import <FBSDKCoreKit/FBSDKAppEvents.h>
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
+#import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
 #import <Lock/A0Errors.h>
 
 @interface A0FacebookProvider ()
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
 @property (strong, nonatomic) NSArray *permissions;
 @property (copy, nonatomic) FBSDKAccessToken *(^currentToken)();
+@property (weak, nonatomic) FBSDKApplicationDelegate *applicationDelegate;
 
-- (nonnull instancetype)initWithLoginManager:(FBSDKLoginManager * __nonnull)loginManager permissions:(NSArray * __nonnull)permissions;
+- (nonnull instancetype)initWithLoginManager:(FBSDKLoginManager * __nonnull)loginManager
+                         applicationDelegate:(FBSDKApplicationDelegate * __nonnull)applicationDelegate
+                                 permissions:(NSArray * __nonnull)permissions;
 @end
 
 @implementation A0FacebookProvider
 
 - (nonnull instancetype)initWithPermissions:(NSArray * __nonnull)permissions {
-    return [self initWithLoginManager:[[FBSDKLoginManager alloc] init] permissions:permissions];
+    return [self initWithLoginManager:[[FBSDKLoginManager alloc] init]
+                  applicationDelegate:[FBSDKApplicationDelegate sharedInstance]
+                          permissions:permissions];
 }
 
-- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager permissions:(NSArray *)permissions {
+- (instancetype)initWithLoginManager:(FBSDKLoginManager *)loginManager
+                 applicationDelegate:(FBSDKApplicationDelegate *)applicationDelegate
+                         permissions:(NSArray *)permissions {
     self = [super init];
     if (self) {
         _loginManager = loginManager;
@@ -52,6 +60,7 @@
         _currentToken = ^ {
             return [FBSDKAccessToken currentAccessToken];
         };
+        _applicationDelegate = applicationDelegate;
     }
     return self;
 }
@@ -76,5 +85,20 @@
     }];
 }
 
+- (void)clearSession {
+    [self.loginManager logOut];
+}
+
+- (BOOL)handleURL:(NSURL * __nonnull)url sourceApplication:(NSString * __nonnull)sourceApplication {
+    return [self.applicationDelegate application:[UIApplication sharedApplication] openURL:url sourceApplication:sourceApplication annotation:nil];
+}
+
+- (void)applicationBecomeActive {
+    [FBSDKAppEvents activateApp];
+}
+
+- (void)applicationLaunchedWithOptions:(NSDictionary * __nonnull)launchOptions {
+    [self.applicationDelegate application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:launchOptions];
+}
 @end
 

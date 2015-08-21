@@ -29,7 +29,12 @@ typedef void(^A0FacebookAuthentication)(NSError * __nullable error, NSString * _
 @interface A0FacebookProvider : NSObject
 
 - (instancetype)initWithPermissions:(NSArray *)permissions;
+
 - (void)authenticateWithPermissions:(nullable NSArray *)permissions callback:(A0FacebookAuthentication)callback;
+- (void)applicationBecomeActive;
+- (void)clearSession;
+- (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication;
+- (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions;
 
 @end
 NS_ASSUME_NONNULL_END
