@@ -28,7 +28,7 @@
 @import OCHamcrest;
 @import Lock;
 
-#import "A0FacebookProvider.h"
+#import "FacebookProvider.h"
 #import "A0FacebookAuthenticator.h"
 
 #define mock(clazz) MKTMock(clazz)
@@ -40,19 +40,19 @@
 #define notNil() HC_notNilValue()
 
 @interface A0FacebookAuthenticator (Testing)
-- (instancetype)initWithFacebook:(nonnull A0FacebookProvider *)facebook;
+- (instancetype)initWithFacebook:(nonnull FacebookProvider *)facebook;
 - (void)applicationActiveNotification:(NSNotification *)notification;
 @end
 
 SpecBegin(A0FacebookAuthenticator)
 
 __block A0FacebookAuthenticator *authenticator;
-__block A0FacebookProvider *provider;
+__block FacebookProvider *provider;
 __block A0APIClient *client;
 __block A0Lock *lock;
 
 beforeEach(^{
-    provider = mock(A0FacebookProvider.class);
+    provider = mock(FacebookProvider.class);
     client = mock(A0APIClient.class);
     lock = mock(A0Lock.class);
     [given(lock.apiClient) willReturn:client];

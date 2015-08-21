@@ -27,11 +27,11 @@
 #import <Lock/A0IdentityProviderCredentials.h>
 #import <Lock/A0AuthParameters.h>
 
-#import "A0FacebookProvider.h"
+#import "FacebookProvider.h"
 #import "LogUtils.h"
 
 @interface A0FacebookAuthenticator ()
-@property (strong, nonatomic) A0FacebookProvider *facebook;
+@property (strong, nonatomic) FacebookProvider *facebook;
 @end
 
 @implementation A0FacebookAuthenticator
@@ -41,10 +41,10 @@
 }
 
 - (instancetype)initWithPermissions:(nonnull NSArray *)permissions {
-    return [self initWithFacebook:[[A0FacebookProvider alloc] initWithPermissions:permissions]];
+    return [self initWithFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
 }
 
-- (instancetype)initWithFacebook:(nonnull A0FacebookProvider *)facebook {
+- (instancetype)initWithFacebook:(nonnull FacebookProvider *)facebook {
     self = [super init];
     if (self) {
         _facebook = facebook;

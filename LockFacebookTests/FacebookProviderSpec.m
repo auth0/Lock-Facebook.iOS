@@ -1,4 +1,4 @@
-// A0FacebookProviderSpec.m
+// FacebookProviderSpec.m
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -20,15 +20,15 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-@import Specta;
+#import "FacebookProvider.h"
+
+@import Lock;
 @import Expecta;
+@import Specta;
 @import FBSDKLoginKit;
 @import FBSDKCoreKit;
 @import OCMockito;
 @import OCHamcrest;
-@import Lock;
-
-#import "A0FacebookProvider.h"
 
 #define mock(clazz) MKTMock(clazz)
 #define verify(mock) MKTVerify(mock)
@@ -37,7 +37,7 @@
 #define never() MKTNever()
 #define anything() HC_anything()
 
-@interface A0FacebookProvider (Testing)
+@interface FacebookProvider (Testing)
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
 @property (strong, nonatomic) NSArray *permissions;
 @property (copy, nonatomic) FBSDKAccessToken *(^currentToken)();
@@ -47,7 +47,7 @@
                                  permissions:(NSArray * __nonnull)permissions;
 @end
 
-SpecBegin(A0FacebookProvider)
+SpecBegin(FacebookProvider)
 
 FBSDKAccessToken *(^fbExpiredToken)() = ^{
     FBSDKAccessToken *fbToken = mock(FBSDKAccessToken.class);
@@ -63,7 +63,7 @@ FBSDKAccessToken *(^fbTokenWithToken)(NSString *) = ^(NSString *token) {
     return fbToken;
 };
 
-__block A0FacebookProvider *facebook;
+__block FacebookProvider *facebook;
 __block FBSDKLoginManager *loginManager;
 __block FBSDKApplicationDelegate *delegate;
 
@@ -77,12 +77,12 @@ describe(@"initialisation", ^{
     sharedExamples(@"valid provider", ^(NSDictionary *data) {
         __block FBSDKLoginManager *manager;
         __block NSArray *permissions;
-        __block A0FacebookProvider *provider;
+        __block FacebookProvider *provider;
 
         beforeEach(^{
             manager = data[@"manager"];
             permissions = data[@"permissions"];
-            provider = [[A0FacebookProvider alloc] initWithLoginManager:manager applicationDelegate:delegate permissions:permissions];
+            provider = [[FacebookProvider alloc] initWithLoginManager:manager applicationDelegate:delegate permissions:permissions];
         });
 
         it(@"should store manager", ^{
@@ -173,7 +173,7 @@ describe(@"authenticate", ^{
     };
 
     beforeEach(^{
-        facebook = [[A0FacebookProvider alloc] initWithLoginManager:loginManager
+        facebook = [[FacebookProvider alloc] initWithLoginManager:loginManager
                                                 applicationDelegate:delegate
                                                         permissions:defaultPermissions];
         facebook.currentToken = ^FBSDKAccessToken *{ return nil; };
@@ -278,7 +278,7 @@ describe(@"authenticate", ^{
 describe(@"lifecycle", ^{
 
     beforeEach(^{
-        facebook = [[A0FacebookProvider alloc] initWithLoginManager:loginManager
+        facebook = [[FacebookProvider alloc] initWithLoginManager:loginManager
                                                 applicationDelegate:delegate
                                                         permissions:@[]];
     });

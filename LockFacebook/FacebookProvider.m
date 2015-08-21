@@ -1,4 +1,4 @@
-// A0FacebookProvider.m
+// FacebookProvider.m
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -20,17 +20,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "A0FacebookProvider.h"
+#import "FacebookProvider.h"
 #import <UIKit/UIKit.h>
-#import <FBSDKLoginKit/FBSDKLoginManager.h>
-#import <FBSDKLoginKit/FBSDKLoginManagerLoginResult.h>
-#import <FBSDKCoreKit/FBSDKAppEvents.h>
-#import <FBSDKCoreKit/FBSDKAccessToken.h>
-#import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <Lock/A0Errors.h>
 #import "LogUtils.h"
 
-@interface A0FacebookProvider ()
+@interface FacebookProvider ()
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
 @property (strong, nonatomic) NSArray *permissions;
 @property (copy, nonatomic) FBSDKAccessToken *(^currentToken)();
@@ -41,7 +38,7 @@
                                  permissions:(NSArray * __nonnull)permissions;
 @end
 
-@implementation A0FacebookProvider
+@implementation FacebookProvider
 
 - (nonnull instancetype)initWithPermissions:(NSArray * __nonnull)permissions {
     return [self initWithLoginManager:[[FBSDKLoginManager alloc] init]

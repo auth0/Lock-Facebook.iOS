@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.public_header_files = 'LockFacebook/*.h'
+  s.public_header_files = ['LockFacebook/A0*.h', 'LockFacebook/LockFacebook.h']
   s.source_files = 'LockFacebook/*.{h,m}'
   s.module_name = 'LockFacebook'
 

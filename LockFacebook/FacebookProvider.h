@@ -1,4 +1,4 @@
-// A0FacebookProvider.h
+// FacebookProvider.h
 //
 // Copyright (c) 2015 Auth0 (http://auth0.com)
 //
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^A0FacebookAuthentication)(NSError * __nullable error, NSString * __nullable token);
 
-@interface A0FacebookProvider : NSObject
+@interface FacebookProvider : NSObject
 
 - (instancetype)initWithPermissions:(NSArray *)permissions;
 
