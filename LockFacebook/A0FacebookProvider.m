@@ -28,6 +28,7 @@
 #import <FBSDKCoreKit/FBSDKAccessToken.h>
 #import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
 #import <Lock/A0Errors.h>
+#import "LogUtils.h"
 
 @interface A0FacebookProvider ()
 @property (strong, nonatomic) FBSDKLoginManager *loginManager;
@@ -65,27 +66,34 @@
     return self;
 }
 
-- (void)authenticateWithPermissions:(NSArray * __nullable)permissions callback:(A0FacebookAuthentication __nonnull)callback {
+- (void)authenticateWithPermissions:(NSArray * __nullable)permissions
+                           callback:(A0FacebookAuthentication __nonnull)callback {
+    NSArray *perms = permissions ? [[NSSet setWithArray:permissions] allObjects] : self.permissions;
     FBSDKAccessToken *token = self.currentToken();
     if ([token.expirationDate compare:[NSDate date]] == NSOrderedDescending) {
+        A0LogDebug(@"User is already athenticated with Facebook. Returning cached token.");
         callback(nil, token.tokenString);
         return;
     }
-    NSArray *perms = permissions ? [[NSSet setWithArray:permissions] allObjects] : self.permissions;
+    A0LogVerbose(@"Starting authentication with permissions %@", perms);
     [self.loginManager logInWithReadPermissions:perms handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
+            A0LogError(@"Facebook login failed with error %@", error);
             callback(error, nil);
             return;
         }
         if (result.isCancelled || result.declinedPermissions.count > 0) {
+            A0LogError(@"Facebook login was cancelled. Declined permissions %@", result.declinedPermissions);
             callback([A0Errors facebookCancelled], nil);
             return;
         }
+        A0LogDebug(@"Authenticated user %@ with the following permissions %@", result.token.userID, result.grantedPermissions);
         callback(nil, result.token.tokenString);
     }];
 }
 
 - (void)clearSession {
+    A0LogDebug(@"Cleaning Facebook session");
     [self.loginManager logOut];
 }
 

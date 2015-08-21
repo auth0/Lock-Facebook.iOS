@@ -12,6 +12,7 @@
 		5F28A0CA1B86580200A2DC75 /* A0FacebookProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F28A0C81B86580200A2DC75 /* A0FacebookProvider.h */; };
 		5F28A0CB1B86580200A2DC75 /* A0FacebookProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F28A0C91B86580200A2DC75 /* A0FacebookProvider.m */; };
 		5F28A0CD1B865A1E00A2DC75 /* A0FacebookProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F28A0CC1B865A1E00A2DC75 /* A0FacebookProviderSpec.m */; };
+		5F28A0CF1B86A27000A2DC75 /* LogUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F28A0CE1B86A26900A2DC75 /* LogUtils.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		5F5D92211B83FC5D00E1887B /* LockFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F5D92201B83FC5D00E1887B /* LockFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F5D92271B83FC5D00E1887B /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5D921B1B83FC5D00E1887B /* LockFacebook.framework */; };
 		5F5D92401B84027F00E1887B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5D923F1B84027F00E1887B /* main.m */; };
@@ -41,6 +42,7 @@
 		5F28A0C81B86580200A2DC75 /* A0FacebookProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0FacebookProvider.h; sourceTree = "<group>"; };
 		5F28A0C91B86580200A2DC75 /* A0FacebookProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0FacebookProvider.m; sourceTree = "<group>"; };
 		5F28A0CC1B865A1E00A2DC75 /* A0FacebookProviderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0FacebookProviderSpec.m; sourceTree = "<group>"; };
+		5F28A0CE1B86A26900A2DC75 /* LogUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogUtils.h; sourceTree = "<group>"; };
 		5F5D921B1B83FC5D00E1887B /* LockFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F5D921F1B83FC5D00E1887B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F5D92201B83FC5D00E1887B /* LockFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockFacebook.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				5F5D921E1B83FC5D00E1887B /* Supporting Files */,
 				5F28A0C81B86580200A2DC75 /* A0FacebookProvider.h */,
 				5F28A0C91B86580200A2DC75 /* A0FacebookProvider.m */,
+				5F28A0CE1B86A26900A2DC75 /* LogUtils.h */,
 			);
 			path = LockFacebook;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				5F5D92211B83FC5D00E1887B /* LockFacebook.h in Headers */,
 				5F5D92631B8407A900E1887B /* A0FacebookAuthenticator.h in Headers */,
 				5F28A0CA1B86580200A2DC75 /* A0FacebookProvider.h in Headers */,
+				5F28A0CF1B86A27000A2DC75 /* LogUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
