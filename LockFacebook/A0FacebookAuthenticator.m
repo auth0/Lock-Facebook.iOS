@@ -30,8 +30,11 @@
 #import "FacebookProvider.h"
 #import "LogUtils.h"
 
+NSString * const DefaultConnectionName = @"facebook";
+
 @interface A0FacebookAuthenticator ()
 @property (strong, nonatomic) FacebookProvider *facebook;
+@property (copy, nonatomic) NSString *connectionName;
 @end
 
 @implementation A0FacebookAuthenticator
@@ -52,6 +55,7 @@
                                                  selector:@selector(applicationActiveNotification:)
                                                      name:UIApplicationDidBecomeActiveNotification
                                                    object:nil];
+        _connectionName = DefaultConnectionName;
     }
     return self;
 }
@@ -80,7 +84,7 @@
 #pragma mark - A0SocialProviderAuth
 
 - (NSString *)identifier {
-    return A0StrategyNameFacebook;
+    return self.connectionName;
 }
 
 - (void)clearSessions {
