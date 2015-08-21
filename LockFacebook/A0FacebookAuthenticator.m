@@ -44,7 +44,11 @@ NSString * const DefaultConnectionName = @"facebook";
 }
 
 - (instancetype)initWithPermissions:(nonnull NSArray *)permissions {
-    return [self initWithConnectionName:DefaultConnectionName andFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
+    return [self initWithConnectionName:DefaultConnectionName permissions:permissions];
+}
+
+- (instancetype)initWithConnectionName:(nonnull NSString *)connectionName permissions:(nonnull NSArray *)permissions {
+    return [self initWithConnectionName:connectionName andFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
 }
 
 - (instancetype)initWithConnectionName:(nonnull NSString *)connectionName andFacebook:(nonnull FacebookProvider *)facebook {
@@ -79,6 +83,14 @@ NSString * const DefaultConnectionName = @"facebook";
 
 + (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissions {
     return [self newAuthenticatorWithPermissions:@[]];
+}
+
++ (A0FacebookAuthenticator *)newAuthenticatorWithConnectionName:(NSString *)connectionName permissions:(NSArray *)permissions {
+    return [[A0FacebookAuthenticator alloc] initWithConnectionName:connectionName permissions:permissions];
+}
+
++ (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissionsForConnectionName:(NSString *)connectionName {
+    return [self newAuthenticatorWithConnectionName:connectionName permissions:@[]];
 }
 
 #pragma mark - A0SocialProviderAuth

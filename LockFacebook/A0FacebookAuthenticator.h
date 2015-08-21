@@ -23,11 +23,12 @@
 #import <Foundation/Foundation.h>
 #import <Lock/A0BaseAuthenticator.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  *  `A0FacebookAuthentication` performs Facebook authentication of a user using Facebook iOS SDK.
  */
 @interface A0FacebookAuthenticator : A0BaseAuthenticator
-
 
 /**
  *  Creates a new instance
@@ -45,4 +46,25 @@
  */
 + (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissions;
 
+/**
+ *  Creates a new instance of the authenticator for a custom Facebook connection
+ *
+ *  @param connectionName of the custom facebook connection
+ *  @param permissions list of permissions to ask the user when authenticating application
+ *
+ *  @return a new instance
+ */
++ (A0FacebookAuthenticator *)newAuthenticatorWithConnectionName:(NSString *)connectionName permissions:(NSArray *)permissions;
+
+/**
+ *  Creates a new instance with the default permissions ("public_profile") for a custom Facebook connection.
+ *
+ *  @param connectionName of the custom facebook connection
+ *
+ *  @return a new instance
+ */
++ (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissionsForConnectionName:(NSString *)connectionName;
+
 @end
+
+NS_ASSUME_NONNULL_END
