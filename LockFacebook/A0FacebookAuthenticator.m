@@ -21,44 +21,37 @@
 // THE SOFTWARE.
 
 #import "A0FacebookAuthenticator.h"
-
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <libextobjc/EXTScope.h>
-#import <Lock/A0Errors.h>
+#import <UIKit/UIKit.h>
 #import <Lock/A0Strategy.h>
-#import <Lock/A0Application.h>
 #import <Lock/A0APIClient.h>
 #import <Lock/A0IdentityProviderCredentials.h>
 #import <Lock/A0AuthParameters.h>
 
-#define A0LogError(fmt, ...)
-#define A0LogVerbose(fmt, ...)
-#define A0LogDebug(fmt, ...)
+#import "A0FacebookProvider.h"
+#import "LogUtils.h"
 
 @interface A0FacebookAuthenticator ()
-@property (strong, nonatomic) NSArray *permissions;
-@property (strong, nonatomic) FBSDKLoginManager *loginManager;
+@property (strong, nonatomic) A0FacebookProvider *facebook;
 @end
 
 @implementation A0FacebookAuthenticator
 
 - (instancetype)init {
-    return [self initWithPermissions:nil];
+    return [self initWithPermissions:@[]];
 }
 
-- (instancetype)initWithPermissions:(NSArray *)permissions {
+- (instancetype)initWithPermissions:(nonnull NSArray *)permissions {
+    return [self initWithFacebook:[[A0FacebookProvider alloc] initWithPermissions:permissions]];
+}
+
+- (instancetype)initWithFacebook:(nonnull A0FacebookProvider *)facebook {
     self = [super init];
     if (self) {
-        if (permissions) {
-            NSMutableSet *perms = [[NSMutableSet alloc] initWithArray:permissions];
-            [perms addObject:@"public_profile"];
-            _permissions = [perms allObjects];
-        } else {
-            _permissions = @[@"public_profile"];
-        }
-        _loginManager = [[FBSDKLoginManager alloc] init];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationActiveNotification:) name:UIApplicationDidBecomeActiveNotification object:nil];
+        _facebook = facebook;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationActiveNotification:)
+                                                     name:UIApplicationDidBecomeActiveNotification
+                                                   object:nil];
     }
     return self;
 }
@@ -69,11 +62,11 @@
 
 - (void)applicationLaunchedWithOptions:(NSDictionary *)launchOptions {
     A0LogVerbose(@"Notifying FB SDK that app launched with options %@", launchOptions);
-    [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:launchOptions];
+    [self.facebook applicationLaunchedWithOptions:launchOptions];
 }
 
 - (void)applicationActiveNotification:(NSNotification *)notification {
-    [FBSDKAppEvents activateApp];
+    [self.facebook applicationBecomeActive];
 }
 
 + (A0FacebookAuthenticator *)newAuthenticatorWithPermissions:(NSArray *)permissions {
@@ -81,7 +74,7 @@
 }
 
 + (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissions {
-    return [self newAuthenticatorWithPermissions:nil];
+    return [self newAuthenticatorWithPermissions:@[]];
 }
 
 #pragma mark - A0SocialProviderAuth
@@ -91,68 +84,40 @@
 }
 
 - (void)clearSessions {
-    [self.loginManager logOut];
+    [self.facebook clearSession];
 }
 
 - (BOOL)handleURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication {
     A0LogVerbose(@"Received url %@ from source application %@", url, sourceApplication);
-    return [[FBSDKApplicationDelegate sharedInstance] application:[UIApplication sharedApplication] openURL:url sourceApplication:sourceApplication annotation:nil];
+    return [self.facebook handleURL:url sourceApplication:sourceApplication];
 }
 
--(void)authenticateWithParameters:(A0AuthParameters *)parameters success:(void (^)(A0UserProfile *, A0Token *))success failure:(void (^)(NSError *))failure {
+-(void)authenticateWithParameters:(A0AuthParameters *)parameters
+                          success:(void (^)(A0UserProfile *, A0Token *))success
+                          failure:(void (^)(NSError *))failure {
     A0LogVerbose(@"Starting Facebook authentication...");
-    void (^failureBlock)(NSError *) = failure ?: ^(NSError *error){};
-    FBSDKAccessToken *accessToken = [FBSDKAccessToken currentAccessToken];
-    if (accessToken) {
-        A0LogDebug(@"Found current FB access token");
-        [self executeAuthenticationWithCredentials:[[A0IdentityProviderCredentials alloc] initWithAccessToken:accessToken.tokenString] parameters:parameters success:success failure:failure];
-    } else {
-        @weakify(self);
-        NSArray *permissions = [self permissionsFromParameters:parameters];
-            [self.loginManager logInWithReadPermissions:permissions handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-            if (error) {
-                A0LogError(@"Failed to open FB Session with error %@", error);
-                failureBlock(error);
-            } else if (result.isCancelled) {
-                A0LogError(@"FB login was cancelled");
-                failureBlock([A0Errors facebookCancelled]);
-            } else {
-                if (result.declinedPermissions.count != 0) {
-                    A0LogDebug(@"User declined some of the permissions %@", result.declinedPermissions);
-                    failureBlock([A0Errors facebookCancelled]);
-                } else {
-                    A0LogDebug(@"Successfully opened FB Session");
-                    @strongify(self);
-                    A0IdentityProviderCredentials *credentials = [[A0IdentityProviderCredentials alloc] initWithAccessToken:result.token.tokenString];
-                    [self executeAuthenticationWithCredentials:credentials
-                                                    parameters:parameters
-                                                       success:success
-                                                       failure:failure];
-                }
-            }
-        }];
-    }
+    NSString *connectionName = [self identifier];
+    A0APIClient *client = [self apiClient];
+    NSArray *permissions = [self permissionsFromParameters:parameters];
+    [self.facebook authenticateWithPermissions:permissions
+                                      callback:^(NSError *error, NSString *token) {
+                                          if (error) {
+                                              failure(error);
+                                              return;
+                                          }
+                                          A0IdentityProviderCredentials *credentials = [[A0IdentityProviderCredentials alloc] initWithAccessToken:token];
+                                          [client authenticateWithSocialConnectionName:connectionName
+                                                                           credentials:credentials
+                                                                            parameters:parameters
+                                                                               success:success
+                                                                               failure:failure];
+                                      }];
 }
 
 #pragma mark - Utility methods
 
 - (NSArray *)permissionsFromParameters:(A0AuthParameters *)parameters {
-    NSArray *connectionScopes = parameters.connectionScopes[A0StrategyNameFacebook];
-    NSArray *permissions = connectionScopes.count > 0 ? connectionScopes : self.permissions;
-    A0LogDebug(@"Facebook Permissions %@", permissions);
-    return permissions;
-}
-
-- (void)executeAuthenticationWithCredentials:(A0IdentityProviderCredentials *)credentials
-                                  parameters:(A0AuthParameters *)parameters
-                                     success:(void(^)(A0UserProfile *, A0Token *))success
-                                     failure:(void(^)(NSError *))failure {
-    A0APIClient *client = [self apiClient];
-    [client authenticateWithSocialConnectionName:self.identifier
-                                     credentials:credentials
-                                      parameters:parameters
-                                         success:success
-                                         failure:failure];
+    return parameters.connectionScopes[self.identifier];
 }
 
 - (A0APIClient *)apiClient {
