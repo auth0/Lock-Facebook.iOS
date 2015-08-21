@@ -40,7 +40,7 @@
 #define notNil() HC_notNilValue()
 
 @interface A0FacebookAuthenticator (Testing)
-- (instancetype)initWithFacebook:(nonnull FacebookProvider *)facebook;
+- (instancetype)initWithConnectionName:(nonnull NSString *)connectionName andFacebook:(nonnull FacebookProvider *)facebook;
 - (void)applicationActiveNotification:(NSNotification *)notification;
 @end
 
@@ -56,8 +56,12 @@ beforeEach(^{
     client = mock(A0APIClient.class);
     lock = mock(A0Lock.class);
     [given(lock.apiClient) willReturn:client];
-    authenticator = [[A0FacebookAuthenticator alloc] initWithFacebook:provider];
+    authenticator = [[A0FacebookAuthenticator alloc] initWithConnectionName:@"facebook" andFacebook:provider];
     authenticator.clientProvider = lock;
+});
+
+it(@"should return connection name as identifier", ^{
+    expect(authenticator.identifier).to.equal(@"facebook");
 });
 
 describe(@"lifecycle", ^{

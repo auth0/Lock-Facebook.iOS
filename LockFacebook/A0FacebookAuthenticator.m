@@ -44,10 +44,10 @@ NSString * const DefaultConnectionName = @"facebook";
 }
 
 - (instancetype)initWithPermissions:(nonnull NSArray *)permissions {
-    return [self initWithFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
+    return [self initWithConnectionName:DefaultConnectionName andFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
 }
 
-- (instancetype)initWithFacebook:(nonnull FacebookProvider *)facebook {
+- (instancetype)initWithConnectionName:(nonnull NSString *)connectionName andFacebook:(nonnull FacebookProvider *)facebook {
     self = [super init];
     if (self) {
         _facebook = facebook;
@@ -55,7 +55,7 @@ NSString * const DefaultConnectionName = @"facebook";
                                                  selector:@selector(applicationActiveNotification:)
                                                      name:UIApplicationDidBecomeActiveNotification
                                                    object:nil];
-        _connectionName = DefaultConnectionName;
+        _connectionName = connectionName;
     }
     return self;
 }
