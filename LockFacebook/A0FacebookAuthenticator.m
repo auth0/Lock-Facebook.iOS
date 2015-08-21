@@ -30,8 +30,11 @@
 #import "FacebookProvider.h"
 #import "LogUtils.h"
 
+NSString * const DefaultConnectionName = @"facebook";
+
 @interface A0FacebookAuthenticator ()
 @property (strong, nonatomic) FacebookProvider *facebook;
+@property (copy, nonatomic) NSString *connectionName;
 @end
 
 @implementation A0FacebookAuthenticator
@@ -41,10 +44,14 @@
 }
 
 - (instancetype)initWithPermissions:(nonnull NSArray *)permissions {
-    return [self initWithFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
+    return [self initWithConnectionName:DefaultConnectionName permissions:permissions];
 }
 
-- (instancetype)initWithFacebook:(nonnull FacebookProvider *)facebook {
+- (instancetype)initWithConnectionName:(nonnull NSString *)connectionName permissions:(nonnull NSArray *)permissions {
+    return [self initWithConnectionName:connectionName andFacebook:[[FacebookProvider alloc] initWithPermissions:permissions]];
+}
+
+- (instancetype)initWithConnectionName:(nonnull NSString *)connectionName andFacebook:(nonnull FacebookProvider *)facebook {
     self = [super init];
     if (self) {
         _facebook = facebook;
@@ -52,6 +59,7 @@
                                                  selector:@selector(applicationActiveNotification:)
                                                      name:UIApplicationDidBecomeActiveNotification
                                                    object:nil];
+        _connectionName = connectionName;
     }
     return self;
 }
@@ -77,10 +85,18 @@
     return [self newAuthenticatorWithPermissions:@[]];
 }
 
++ (A0FacebookAuthenticator *)newAuthenticatorWithConnectionName:(NSString *)connectionName permissions:(NSArray *)permissions {
+    return [[A0FacebookAuthenticator alloc] initWithConnectionName:connectionName permissions:permissions];
+}
+
++ (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissionsForConnectionName:(NSString *)connectionName {
+    return [self newAuthenticatorWithConnectionName:connectionName permissions:@[]];
+}
+
 #pragma mark - A0SocialProviderAuth
 
 - (NSString *)identifier {
-    return A0StrategyNameFacebook;
+    return self.connectionName;
 }
 
 - (void)clearSessions {
