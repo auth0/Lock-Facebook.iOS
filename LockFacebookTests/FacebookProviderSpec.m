@@ -187,7 +187,7 @@ describe(@"authenticate", ^{
     it(@"should override default permissoins", ^{
         NSArray *permissions = @[@"public_profile", @"email", @"user_likes"];
         [facebook authenticateWithPermissions:permissions callback:^(NSError *error, NSString *token) {}];
-        [verify(loginManager) logInWithReadPermissions:permissions handler:HC_notNilValue()];
+        [verify(loginManager) logInWithReadPermissions:HC_containsInAnyOrder(@"public_profile", @"email", @"user_likes", nil) handler:HC_notNilValue()];
     });
 
     it(@"should pass along token on success", ^{
