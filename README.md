@@ -18,15 +18,31 @@ iOS 7+
 The Lock-Facebook is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod "Lock-Facebook", "~> 1.0"
+pod "Lock-Facebook", "~> 2.1"
 ```
 
-Then in your project's `Info.plist` file add the following entries:
+### Build issues with CocoaPods
+
+If you add `uses_frameworks!` flag to your **Podfile**, you'll not be able to build the project due to how Facebook SDK handles headers. A workaround to this issue is to add the following to your **Podfile**
+
+```ruby
+post_install do |installer|
+    installer.pods_project.build_configurations.each { |bc|
+        bc.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+    }
+end
+```
+
+## Before you start using Lock-Facebook
+
+In order to authenticate against Facebook, you'll need to register your application in [Facebook Developer portal](https://developers.facebook.com). We recommend following their [quickstart](https://developers.facebook.com/quickstarts/?platform=ios) for iOS.
+
+If you already have your FacebookAppID, then in your project's `Info.plist` file add the following entries:
 
 * _FacebookAppId_: `YOUR_FACEBOOK_APP_ID`
 * _FacebookDisplayName_: `YOUR_FACEBOOK_DISPLAY_NAME`
 
-Then register a custom URL Type with the format `fb<FacebookAppId>`. For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+Then register a custom URL Type with the format `fb<FacebookAppId>`.
 
 Here's an example of how the entries should look like in your `Info.plist` file:
 
@@ -34,7 +50,7 @@ Here's an example of how the entries should look like in your `Info.plist` file:
 
 ## Usage
 
-Just create a new instance of `A0FacebookAuthenticator`
+Just create a new instance of `A0FacebookAuthenticator` for the default permission `public_profile`
 
 ```objc
 A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
@@ -55,19 +71,10 @@ A0Lock *lock = //Get your A0Lock instance
 let lock:A0Lock = //Get your A0Lock instance
 lock.registerAuthenticators([facebook])
 ```
+> A good place to create and register `A0FacebookAuthenticator` is the `AppDelegate`class.
 
-> A good place to create and register `A0FacebookAuthenticator` is the `AppDelegate.m` or `AppDelegate.swift` files.
+### Specify additional **Read** permissions
 
-
-##API
-
-###A0FacebookAuthenticator
-
-####A0FacebookAuthenticator#newAuthenticatorWithPermissions
-```objc
-+ (A0FacebookAuthenticator *)newAuthenticatorWithPermissions:(NSArray *)permissions;
-```
-Create a new 'A0FacebookAuthenticator' using a list of FB permissions
 ```objc
 A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithPermissions:@[@"public_profile", @"email"]];
 ```
@@ -75,17 +82,15 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 let facebook = A0FacebookAuthenticator.newAuthenticatorWithPermissions(["public_profile", "email"])
 ```
 
-####A0FacebookAuthenticator#newAuthenticatorWithDefaultPermissions
+### Custom Facebook connection
+
 ```objc
-+ (A0FacebookAuthenticator *)newAuthenticatorWithDefaultPermissions;
-```
-Create a new 'A0FacebookAuthenticator' with default FB permissions
-```objc
-A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
+A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissionsForConnectionName:@"custom-connection-name"];
 ```
 ```swift
-let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
+let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissionsForConnectionName("custom-connection-name")
 ```
+> Please check CocoaDocs for more information about [Lock-Facebook API](http://cocoadocs.org/docsets/Lock-Facebook)
 
 ## Issue Reporting
 
