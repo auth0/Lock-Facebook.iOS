@@ -1,5 +1,15 @@
 # Change Log
 
+## [2.1.0](https://github.com/auth0/Lock-Facebook.iOS/tree/2.1.0) (2015-08-21)
+
+[Full Changelog](https://github.com/auth0/Lock-Facebook.iOS/compare/2.0.2...2.1.0)
+
+**Merged pull requests:**
+
+- Custom connection name for authenticator [\#5](https://github.com/auth0/Lock-Facebook.iOS/pull/5) ([hzalaz](https://github.com/hzalaz))
+
+- Add Framework project with test app [\#4](https://github.com/auth0/Lock-Facebook.iOS/pull/4) ([hzalaz](https://github.com/hzalaz))
+
 ## [2.0.2](https://github.com/auth0/Lock-Facebook.iOS/tree/2.0.2) (2015-07-25)
 
 [Full Changelog](https://github.com/auth0/Lock-Facebook.iOS/compare/2.0.1...2.0.2)
