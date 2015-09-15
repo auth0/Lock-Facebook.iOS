@@ -167,7 +167,7 @@ describe(@"authenticate", ^{
 
     void(^invokeHandler)(FBSDKLoginManagerLoginResult *, NSError *) = ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         MKTArgumentCaptor *captor = [[MKTArgumentCaptor alloc] init];
-        [verify(loginManager) logInWithReadPermissions:defaultPermissions handler:[captor capture]];
+        [verify(loginManager) logInWithReadPermissions:defaultPermissions fromViewController:nil handler:[captor capture]];
         FBSDKLoginManagerRequestTokenHandler block = [captor value];
         block(result, error);
     };
@@ -181,13 +181,13 @@ describe(@"authenticate", ^{
 
     it(@"should authenticate with no permissions", ^{
         [facebook authenticateWithPermissions:nil callback:^(NSError *error, NSString *token) {}];
-        [verify(loginManager) logInWithReadPermissions:defaultPermissions handler:HC_notNilValue()];
+        [verify(loginManager) logInWithReadPermissions:defaultPermissions fromViewController:HC_nilValue() handler:HC_notNilValue()];
     });
 
     it(@"should override default permissoins", ^{
         NSArray *permissions = @[@"public_profile", @"email", @"user_likes"];
         [facebook authenticateWithPermissions:permissions callback:^(NSError *error, NSString *token) {}];
-        [verify(loginManager) logInWithReadPermissions:HC_containsInAnyOrder(@"public_profile", @"email", @"user_likes", nil) handler:HC_notNilValue()];
+        [verify(loginManager) logInWithReadPermissions:HC_containsInAnyOrder(@"public_profile", @"email", @"user_likes", nil) fromViewController:HC_nilValue() handler:HC_notNilValue()];
     });
 
     it(@"should pass along token on success", ^{
@@ -225,6 +225,7 @@ describe(@"authenticate", ^{
                                              expect(error).to.beNil();
                                              expect(token).to.equal(token);
                                              [verifyCount(loginManager, never()) logInWithReadPermissions:anything()
+                                                                                       fromViewController:anything()
                                                                                                   handler:anything()];
                                              done();
                                          }];
