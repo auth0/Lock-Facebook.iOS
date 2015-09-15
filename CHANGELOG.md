@@ -1,5 +1,13 @@
 # Change Log
 
+## [2.2.0](https://github.com/auth0/Lock-Facebook.iOS/tree/2.2.0) (2015-09-15)
+
+[Full Changelog](https://github.com/auth0/Lock-Facebook.iOS/compare/2.1.0...2.2.0)
+
+**Merged pull requests:**
+
+- Update to 4.6 fb sdk [\#6](https://github.com/auth0/Lock-Facebook.iOS/pull/6) ([hzalaz](https://github.com/hzalaz))
+
 ## [2.1.0](https://github.com/auth0/Lock-Facebook.iOS/tree/2.1.0) (2015-08-21)
 
 [Full Changelog](https://github.com/auth0/Lock-Facebook.iOS/compare/2.0.2...2.1.0)
