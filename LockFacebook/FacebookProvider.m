@@ -73,7 +73,7 @@
         return;
     }
     A0LogVerbose(@"Starting authentication with permissions %@", perms);
-    [self.loginManager logInWithReadPermissions:perms handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+    [self.loginManager logInWithReadPermissions:perms fromViewController:nil handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         if (error) {
             A0LogError(@"Facebook login failed with error %@", error);
             callback(error, nil);
