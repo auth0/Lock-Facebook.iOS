@@ -23,7 +23,13 @@ pod "Lock-Facebook", "~> 2.1"
 
 ### Build issues with CocoaPods
 
-If you add `uses_frameworks!` flag to your **Podfile**, you'll not be able to build the project due to how Facebook SDK handles headers. A workaround to this issue is to add the following to your **Podfile**
+If you add `uses_frameworks!` flag to your **Podfile**, you'll not be able to build the project with an error similar to the following:
+
+```
+Include of non-modular header inside framework module 'FBSDKLoginKit.FBSDKLoginConstants'
+```
+
+This is due to how Facebook SDK handles headers. A workaround to this issue is to add the following to your **Podfile**:
 
 ```ruby
 post_install do |installer|
