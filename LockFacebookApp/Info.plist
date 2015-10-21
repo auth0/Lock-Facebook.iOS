@@ -2,12 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Auth0ClientId</key>
+	<string>U5MhUrbyQHSVWjlEqZSTCBUFABLbJAS3</string>
+	<key>Auth0Domain</key>
+	<string>overmind.auth0.com</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.auth0.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -33,6 +37,10 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>515369438565638</string>
+	<key>FacebookDisplayName</key>
+	<string>Auth0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -49,13 +57,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>Auth0ClientId</key>
-	<string>U5MhUrbyQHSVWjlEqZSTCBUFABLbJAS3</string>
-	<key>Auth0Domain</key>
-	<string>overmind.auth0.com</string>
-	<key>FacebookAppID</key>
-	<string>515369438565638</string>
-	<key>FacebookDisplayName</key>
-	<string>Auth0</string>
 </dict>
 </plist>
