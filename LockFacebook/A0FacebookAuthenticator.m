@@ -30,7 +30,7 @@
 #import "FacebookProvider.h"
 #import "LogUtils.h"
 
-NSString * const DefaultConnectionName = @"facebook";
+static NSString * const DefaultConnectionName = @"facebook";
 
 @interface A0FacebookAuthenticator ()
 @property (strong, nonatomic) FacebookProvider *facebook;
