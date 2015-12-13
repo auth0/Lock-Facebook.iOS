@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		442D001E8EC95F81AEEF512F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127E6ABBD35C822BBBF1018 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		442D001E8EC95F81AEEF512F /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D127E6ABBD35C822BBBF1018 /* Pods.framework */; };
 		5F28A0CA1B86580200A2DC75 /* FacebookProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F28A0C81B86580200A2DC75 /* FacebookProvider.h */; };
 		5F28A0CB1B86580200A2DC75 /* FacebookProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F28A0C91B86580200A2DC75 /* FacebookProvider.m */; };
 		5F28A0CD1B865A1E00A2DC75 /* FacebookProviderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F28A0CC1B865A1E00A2DC75 /* FacebookProviderSpec.m */; };
@@ -25,7 +25,7 @@
 		5F5D92641B8407A900E1887B /* A0FacebookAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5D92621B8407A900E1887B /* A0FacebookAuthenticator.m */; };
 		5F7917C61B8541E900F2BAD9 /* LockFacebookProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7917C51B8541E900F2BAD9 /* LockFacebookProvider.m */; };
 		5F7917C91B8549C800F2BAD9 /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5D921B1B83FC5D00E1887B /* LockFacebook.framework */; };
-		A665FD0B7AC1035A10ACCD4E /* Pods_LockFacebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F6B7A4EE273DF27F6AC30E /* Pods_LockFacebookTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A665FD0B7AC1035A10ACCD4E /* Pods_LockFacebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F6B7A4EE273DF27F6AC30E /* Pods_LockFacebookTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
