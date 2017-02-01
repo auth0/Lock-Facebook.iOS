@@ -1,0 +1,26 @@
+reference: http://www.objc.io/issue-6/travis-ci.html
+language: objective-c
+osx_image: xcode8.2
+env:
+  global:
+  -
+  - LC_CTYPE=en_US.UTF-8
+  - FASTLANE_SKIP_UPDATE_CHECK=1
+  - LANG=en_US.UTF-8
+  matrix:
+  - SCHEME="LockFacebook" DEVICE="iPhone 6 (9.3)"
+  - SCHEME="LockFacebook" DEVICE="iPhone 6 (10.0)"
+cache:
+  - bundler
+install:
+  - bundle install
+script:
+  - bundle exec fastlane ios ci
+branches:
+  only:
+  - v2
+notifications:
+  slack:
+    secure: FoZu3c7QxP2jDgzSyyl1NRbk5MUFN38rsPJQG1xOJioqOrO1XPdknBneLn/bGDVOWMWsY9JNM7yC0tqGJiXWUxzbL5ixLJb6/fc6OQdLyJ4jEDsSt+UMnl2CZdXxynndSWdz/KBrvmuj+GG2oqap5X1/PCXbH6XIPTLfeC/n9poTN7nSIsU9FaLybEQVvqhjV7o1Ku+w1FqZS7c3EUK25xv0uA5WQFOBf0qAxI5hRej9oq2pG6gPtQ5xqvOot12PH1/W3ciB6gIh0wgNdZ1JH3YPEpBjPAFpFhrcGdh6iJOdmlZVvyKLUDl2qT4vatSUC87aPCdgWSrEPjnDBWQ/qrUFdwaFP8L72XfvkB18Vn72DDHj8yWU+lFnr04FWgM9kIva319vyJdX4ftNFhYwGANv08w9vzqzgz9Ke88JaGrpHl0zkz8G5qOAIHmh5sA76DeqUU5Lffha2pcbyCpt4+8Z/Iye51H8kDSxGhKkgkrdOOYm86aRJ/REED8kTaOW76xAKqUPEnZxDcUFImzdp9u+tZuFr26LZSf4ukC4XU41rEYbjYsErKSCmLEJg8QJlTyUblpQjALe0K9FdtzPhDG68CvdrobyorhZlOFEIk2/MU30Fdwu072qawAiyOZXgLE1ycoyMtUXtoIVeA4LY5d0aQHFUTYtCiIGgrxe2dk=
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'LockFacebook'
