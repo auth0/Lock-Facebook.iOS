@@ -26,7 +26,6 @@
 		5B73CBAF1E5DB5D700FDBBDD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */; };
 		5B73CBB01E5DB5E700FDBBDD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */; };
 		5BD55EBE1E3A25F90061EB78 /* LockFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD55EBD1E3A25F90061EB78 /* LockFacebook.swift */; };
-		5BD6D4961E3A2AC000015581 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BD6D4951E3A2AC000015581 /* Auth0.plist */; };
 		5BF5ED111E5DB2F900D58104 /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; };
 		5BF5ED121E5DB2F900D58104 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */; };
 		5BF5ED131E5DB2F900D58104 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */; };
@@ -267,6 +266,7 @@
 				5B32AE1E1E3A254600D78D8C /* Embed Frameworks */,
 				5B73CBA51E5DB4AC00FDBBDD /* Carthage */,
 				5B6269EE1E41DC1E00305093 /* SwiftLint */,
+				5B783D661E5DF12500209708 /* Auth0 */,
 			);
 			buildRules = (
 			);
@@ -347,7 +347,6 @@
 				5B32AE151E3A253D00D78D8C /* LaunchScreen.storyboard in Resources */,
 				5B32AE121E3A253D00D78D8C /* Assets.xcassets in Resources */,
 				5B32AE101E3A253D00D78D8C /* Main.storyboard in Resources */,
-				5BD6D4961E3A2AC000015581 /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +400,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		5B783D661E5DF12500209708 /* Auth0 */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Auth0;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "AUTH0_PLIST=\"${SRCROOT}/Auth0.plist\"\nif [ -f $AUTH0_PLIST ];\nthen\ncp \"$AUTH0_PLIST\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nfi";
 		};
 		5BF5ED161E5DB35700D58104 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
