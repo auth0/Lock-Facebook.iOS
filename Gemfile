@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'fastlane'
-gem 'cocoapods'
-gem 'chandler'
-gem 'semantic',  '~> 1.5'
+gem 'fastlane', '~> 2.5'
+gem 'cocoapods', '~> 1.0'
+gem 'xcpretty-travis-formatter'
+gem 'carthage_cache', '~> 0.5'

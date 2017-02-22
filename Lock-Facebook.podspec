@@ -15,10 +15,9 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "9.0"
   s.requires_arc = true
-  s.module_name = "LockFacbook"
+  s.module_name = "LockFacebook"
 
   s.source_files = "LockFacebook/**/*.{swift}"
-
   s.dependency "FacebookLogin"
   s.dependency "Auth0", "~> 1.2"
 end

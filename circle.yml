@@ -1,0 +1,8 @@
+machine:
+  xcode:
+    version: 8.2
+  environment:
+    AWS_REGION: "us-west-1"
+    CARTHAGE_CACHE_BUCKET_NAME: "carthage-ios-deps"
+    SCHEME: "LockFacebook"
+    DEVICE: "iPhone 7 (10.2)"

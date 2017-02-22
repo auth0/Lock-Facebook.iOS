@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0AA32F83F509AAB3252FED0E /* Pods_LockFacebookApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CFD7E40086811BB3E3F5E3 /* Pods_LockFacebookApp.framework */; };
-		517543EEF18108DDE0D2AB06 /* Pods_LockFacebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDCAC05AB60B2553F1A05BC /* Pods_LockFacebookTests.framework */; };
 		5B32ADF41E3A24D500D78D8C /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */; };
 		5B32ADF91E3A24D500D78D8C /* LockFacebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32ADF81E3A24D500D78D8C /* LockFacebookTests.swift */; };
 		5B32ADFB1E3A24D500D78D8C /* LockFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B32ADED1E3A24D500D78D8C /* LockFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,9 +18,20 @@
 		5B32AE1A1E3A254600D78D8C /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */; };
 		5B32AE1B1E3A254600D78D8C /* LockFacebook.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B6269EC1E40D43600305093 /* FacebookNativeTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6269EB1E40D43600305093 /* FacebookNativeTransaction.swift */; };
+		5B73CBA91E5DB4F300FDBBDD /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; };
+		5B73CBAA1E5DB4F300FDBBDD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */; };
+		5B73CBAB1E5DB4F300FDBBDD /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */; };
+		5B73CBAC1E5DB4F300FDBBDD /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0E1E5DB2F900D58104 /* FacebookLogin.framework */; };
+		5B73CBAD1E5DB4F300FDBBDD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0F1E5DB2F900D58104 /* FBSDKCoreKit.framework */; };
+		5B73CBAF1E5DB5D700FDBBDD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */; };
+		5B73CBB01E5DB5E700FDBBDD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */; };
 		5BD55EBE1E3A25F90061EB78 /* LockFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD55EBD1E3A25F90061EB78 /* LockFacebook.swift */; };
 		5BD6D4961E3A2AC000015581 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BD6D4951E3A2AC000015581 /* Auth0.plist */; };
-		F201B090A09A330C0E8C2812 /* Pods_LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B478C14A19A4C1D29236E61D /* Pods_LockFacebook.framework */; };
+		5BF5ED111E5DB2F900D58104 /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; };
+		5BF5ED121E5DB2F900D58104 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */; };
+		5BF5ED131E5DB2F900D58104 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */; };
+		5BF5ED141E5DB2F900D58104 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0E1E5DB2F900D58104 /* FacebookLogin.framework */; };
+		5BF5ED151E5DB2F900D58104 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0F1E5DB2F900D58104 /* FBSDKCoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +48,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5B32ADE91E3A24D400D78D8C;
 			remoteInfo = LockFacebook;
+		};
+		5B73CBC61E5DD56B00FDBBDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B32ADE11E3A24D400D78D8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5B32AE071E3A253D00D78D8C;
+			remoteInfo = LockFacebookApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -57,12 +73,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		21974CA44D996EA158251521 /* Pods-LockFacebookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebookTests/Pods-LockFacebookTests.release.xcconfig"; sourceTree = "<group>"; };
-		30CFD7E40086811BB3E3F5E3 /* Pods_LockFacebookApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockFacebookApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B32ADED1E3A24D500D78D8C /* LockFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockFacebook.h; sourceTree = "<group>"; };
 		5B32ADEE1E3A24D500D78D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B32ADF31E3A24D500D78D8C /* LockFacebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockFacebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B32ADF31E3A24D500D78D8C /* LockFacebookTests.iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockFacebookTests.iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B32ADF81E3A24D500D78D8C /* LockFacebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFacebookTests.swift; sourceTree = "<group>"; };
 		5B32ADFA1E3A24D500D78D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B32AE081E3A253D00D78D8C /* LockFacebookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockFacebookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,15 +87,14 @@
 		5B32AE141E3A253D00D78D8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B32AE161E3A253D00D78D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6269EB1E40D43600305093 /* FacebookNativeTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookNativeTransaction.swift; sourceTree = "<group>"; };
+		5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Carthage/Build/iOS/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5BD55EBD1E3A25F90061EB78 /* LockFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockFacebook.swift; sourceTree = "<group>"; };
 		5BD6D4951E3A2AC000015581 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
-		6A4E9320F75AF696FDF72F25 /* Pods-LockFacebookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebookTests/Pods-LockFacebookTests.debug.xcconfig"; sourceTree = "<group>"; };
-		98FA559D9D3650FBC8D142A8 /* Pods-LockFacebookApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebookApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebookApp/Pods-LockFacebookApp.debug.xcconfig"; sourceTree = "<group>"; };
-		A2D360F10D1A90D60232A8C5 /* Pods-LockFacebook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebook/Pods-LockFacebook.debug.xcconfig"; sourceTree = "<group>"; };
-		ADA4F63AA3AC84AB489B0CB6 /* Pods-LockFacebookApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebookApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebookApp/Pods-LockFacebookApp.release.xcconfig"; sourceTree = "<group>"; };
-		B478C14A19A4C1D29236E61D /* Pods_LockFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDDCAC05AB60B2553F1A05BC /* Pods_LockFacebookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockFacebookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDFF6825A82D868F71F4AA37 /* Pods-LockFacebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockFacebook.release.xcconfig"; path = "Pods/Target Support Files/Pods-LockFacebook/Pods-LockFacebook.release.xcconfig"; sourceTree = "<group>"; };
+		5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
+		5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
+		5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookCore.framework; path = Carthage/Build/iOS/FacebookCore.framework; sourceTree = "<group>"; };
+		5BF5ED0E1E5DB2F900D58104 /* FacebookLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookLogin.framework; path = Carthage/Build/iOS/FacebookLogin.framework; sourceTree = "<group>"; };
+		5BF5ED0F1E5DB2F900D58104 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Carthage/Build/iOS/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +102,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F201B090A09A330C0E8C2812 /* Pods_LockFacebook.framework in Frameworks */,
+				5BF5ED111E5DB2F900D58104 /* Auth0.framework in Frameworks */,
+				5BF5ED121E5DB2F900D58104 /* Bolts.framework in Frameworks */,
+				5BF5ED131E5DB2F900D58104 /* FacebookCore.framework in Frameworks */,
+				5BF5ED141E5DB2F900D58104 /* FacebookLogin.framework in Frameworks */,
+				5BF5ED151E5DB2F900D58104 /* FBSDKCoreKit.framework in Frameworks */,
+				5B73CBB01E5DB5E700FDBBDD /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +116,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B32ADF41E3A24D500D78D8C /* LockFacebook.framework in Frameworks */,
-				517543EEF18108DDE0D2AB06 /* Pods_LockFacebookTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,24 +123,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B73CBAF1E5DB5D700FDBBDD /* FBSDKLoginKit.framework in Frameworks */,
+				5B73CBAD1E5DB4F300FDBBDD /* FBSDKCoreKit.framework in Frameworks */,
 				5B32AE1A1E3A254600D78D8C /* LockFacebook.framework in Frameworks */,
-				0AA32F83F509AAB3252FED0E /* Pods_LockFacebookApp.framework in Frameworks */,
+				5B73CBA91E5DB4F300FDBBDD /* Auth0.framework in Frameworks */,
+				5B73CBAA1E5DB4F300FDBBDD /* Bolts.framework in Frameworks */,
+				5B73CBAB1E5DB4F300FDBBDD /* FacebookCore.framework in Frameworks */,
+				5B73CBAC1E5DB4F300FDBBDD /* FacebookLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		28A7111F0FFA31669D9830F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B478C14A19A4C1D29236E61D /* Pods_LockFacebook.framework */,
-				30CFD7E40086811BB3E3F5E3 /* Pods_LockFacebookApp.framework */,
-				BDDCAC05AB60B2553F1A05BC /* Pods_LockFacebookTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5B32ADE01E3A24D400D78D8C = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +143,7 @@
 				5B32ADF71E3A24D500D78D8C /* LockFacebookTests */,
 				5B32AE091E3A253D00D78D8C /* LockFacebookApp */,
 				5B32ADEB1E3A24D500D78D8C /* Products */,
-				B66279030AE02DE9C0ABC5D5 /* Pods */,
-				28A7111F0FFA31669D9830F2 /* Frameworks */,
+				5BF5ED091E5DB2F900D58104 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */,
-				5B32ADF31E3A24D500D78D8C /* LockFacebookTests.xctest */,
+				5B32ADF31E3A24D500D78D8C /* LockFacebookTests.iOS.xctest */,
 				5B32AE081E3A253D00D78D8C /* LockFacebookApp.app */,
 			);
 			name = Products;
@@ -180,17 +191,17 @@
 			path = LockFacebookApp;
 			sourceTree = "<group>";
 		};
-		B66279030AE02DE9C0ABC5D5 /* Pods */ = {
+		5BF5ED091E5DB2F900D58104 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A2D360F10D1A90D60232A8C5 /* Pods-LockFacebook.debug.xcconfig */,
-				EDFF6825A82D868F71F4AA37 /* Pods-LockFacebook.release.xcconfig */,
-				98FA559D9D3650FBC8D142A8 /* Pods-LockFacebookApp.debug.xcconfig */,
-				ADA4F63AA3AC84AB489B0CB6 /* Pods-LockFacebookApp.release.xcconfig */,
-				6A4E9320F75AF696FDF72F25 /* Pods-LockFacebookTests.debug.xcconfig */,
-				21974CA44D996EA158251521 /* Pods-LockFacebookTests.release.xcconfig */,
+				5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */,
+				5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */,
+				5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */,
+				5BF5ED0E1E5DB2F900D58104 /* FacebookLogin.framework */,
+				5BF5ED0F1E5DB2F900D58104 /* FBSDKCoreKit.framework */,
+				5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,60 +218,55 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5B32ADE91E3A24D400D78D8C /* LockFacebook */ = {
+		5B32ADE91E3A24D400D78D8C /* LockFacebook.iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B32ADFE1E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebook" */;
+			buildConfigurationList = 5B32ADFE1E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebook.iOS" */;
 			buildPhases = (
-				884EE61E3B5C0F771FBE7508 /* [CP] Check Pods Manifest.lock */,
 				5B32ADE51E3A24D400D78D8C /* Sources */,
 				5B32ADE61E3A24D400D78D8C /* Frameworks */,
 				5B32ADE71E3A24D400D78D8C /* Headers */,
 				5B32ADE81E3A24D400D78D8C /* Resources */,
 				5B6269ED1E41078600305093 /* SwiftLint */,
-				A18A89398B359B3909AF3939 /* [CP] Copy Pods Resources */,
+				5BF5ED161E5DB35700D58104 /* Carthage */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LockFacebook;
+			name = LockFacebook.iOS;
 			productName = LockFacebook;
 			productReference = 5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5B32ADF21E3A24D500D78D8C /* LockFacebookTests */ = {
+		5B32ADF21E3A24D500D78D8C /* LockFacebookTests.iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B32AE011E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebookTests" */;
+			buildConfigurationList = 5B32AE011E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebookTests.iOS" */;
 			buildPhases = (
-				000443849B1231BEB4376409 /* [CP] Check Pods Manifest.lock */,
 				5B32ADEF1E3A24D500D78D8C /* Sources */,
 				5B32ADF01E3A24D500D78D8C /* Frameworks */,
 				5B32ADF11E3A24D500D78D8C /* Resources */,
-				3871B1A6C8FBE7C4A7947324 /* [CP] Embed Pods Frameworks */,
-				75123C3B20F06E1F6EC1DAA1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				5B32ADF61E3A24D500D78D8C /* PBXTargetDependency */,
+				5B73CBC71E5DD56B00FDBBDD /* PBXTargetDependency */,
 			);
-			name = LockFacebookTests;
+			name = LockFacebookTests.iOS;
 			productName = LockFacebookTests;
-			productReference = 5B32ADF31E3A24D500D78D8C /* LockFacebookTests.xctest */;
+			productReference = 5B32ADF31E3A24D500D78D8C /* LockFacebookTests.iOS.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5B32AE071E3A253D00D78D8C /* LockFacebookApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B32AE191E3A253D00D78D8C /* Build configuration list for PBXNativeTarget "LockFacebookApp" */;
 			buildPhases = (
-				B0BE19461CEE2A4A041A9426 /* [CP] Check Pods Manifest.lock */,
 				5B32AE041E3A253D00D78D8C /* Sources */,
 				5B32AE051E3A253D00D78D8C /* Frameworks */,
 				5B32AE061E3A253D00D78D8C /* Resources */,
 				5B32AE1E1E3A254600D78D8C /* Embed Frameworks */,
+				5B73CBA51E5DB4AC00FDBBDD /* Carthage */,
 				5B6269EE1E41DC1E00305093 /* SwiftLint */,
-				477D53FE8A1ADDB68165A046 /* [CP] Embed Pods Frameworks */,
-				6C758DC725A9D306829C2DCC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,9 +290,8 @@
 				TargetAttributes = {
 					5B32ADE91E3A24D400D78D8C = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 769VGSJNLF;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					5B32ADF21E3A24D500D78D8C = {
 						CreatedOnToolsVersion = 8.2;
@@ -313,8 +318,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B32ADE91E3A24D400D78D8C /* LockFacebook */,
-				5B32ADF21E3A24D500D78D8C /* LockFacebookTests */,
+				5B32ADE91E3A24D400D78D8C /* LockFacebook.iOS */,
+				5B32ADF21E3A24D500D78D8C /* LockFacebookTests.iOS */,
 				5B32AE071E3A253D00D78D8C /* LockFacebookApp */,
 			);
 		};
@@ -349,51 +354,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		000443849B1231BEB4376409 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3871B1A6C8FBE7C4A7947324 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockFacebookTests/Pods-LockFacebookTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		477D53FE8A1ADDB68165A046 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockFacebookApp/Pods-LockFacebookApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5B6269ED1E41078600305093 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,80 +382,45 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nfi";
 		};
-		6C758DC725A9D306829C2DCC /* [CP] Copy Pods Resources */ = {
+		5B73CBA51E5DB4AC00FDBBDD /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Auth0.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FacebookCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FacebookLogin.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKCoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKLoginKit.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockFacebookApp/Pods-LockFacebookApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		75123C3B20F06E1F6EC1DAA1 /* [CP] Copy Pods Resources */ = {
+		5BF5ED161E5DB35700D58104 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/FacebookCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKCoreKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FacebookLogin.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Auth0.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FBSDKLoginKit.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockFacebookTests/Pods-LockFacebookTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		884EE61E3B5C0F771FBE7508 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A18A89398B359B3909AF3939 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LockFacebook/Pods-LockFacebook-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0BE19461CEE2A4A041A9426 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -531,13 +456,18 @@
 /* Begin PBXTargetDependency section */
 		5B32ADF61E3A24D500D78D8C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B32ADE91E3A24D400D78D8C /* LockFacebook */;
+			target = 5B32ADE91E3A24D400D78D8C /* LockFacebook.iOS */;
 			targetProxy = 5B32ADF51E3A24D500D78D8C /* PBXContainerItemProxy */;
 		};
 		5B32AE1D1E3A254600D78D8C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B32ADE91E3A24D400D78D8C /* LockFacebook */;
+			target = 5B32ADE91E3A24D400D78D8C /* LockFacebook.iOS */;
 			targetProxy = 5B32AE1C1E3A254600D78D8C /* PBXContainerItemProxy */;
+		};
+		5B73CBC71E5DD56B00FDBBDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5B32AE071E3A253D00D78D8C /* LockFacebookApp */;
+			targetProxy = 5B73CBC61E5DD56B00FDBBDD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -602,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -649,7 +579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -662,20 +592,23 @@
 		};
 		5B32ADFF1E3A24D500D78D8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2D360F10D1A90D60232A8C5 /* Pods-LockFacebook.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 769VGSJNLF;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LockFacebook/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.ios.LockFacebook;
+				PRODUCT_NAME = LockFacebook;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -684,20 +617,23 @@
 		};
 		5B32AE001E3A24D500D78D8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDFF6825A82D868F71F4AA37 /* Pods-LockFacebook.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 769VGSJNLF;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LockFacebook/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.ios.LockFacebook;
+				PRODUCT_NAME = LockFacebook;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -705,7 +641,6 @@
 		};
 		5B32AE021E3A24D500D78D8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A4E9320F75AF696FDF72F25 /* Pods-LockFacebookTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -720,7 +655,6 @@
 		};
 		5B32AE031E3A24D500D78D8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21974CA44D996EA158251521 /* Pods-LockFacebookTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -735,15 +669,18 @@
 		};
 		5B32AE171E3A253D00D78D8C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98FA559D9D3650FBC8D142A8 /* Pods-LockFacebookApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = 769VGSJNLF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LockFacebookApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebookApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -751,15 +688,18 @@
 		};
 		5B32AE181E3A253D00D78D8C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADA4F63AA3AC84AB489B0CB6 /* Pods-LockFacebookApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = 769VGSJNLF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LockFacebookApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebookApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -777,7 +717,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B32ADFE1E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebook" */ = {
+		5B32ADFE1E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebook.iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B32ADFF1E3A24D500D78D8C /* Debug */,
@@ -786,7 +726,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B32AE011E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebookTests" */ = {
+		5B32AE011E3A24D500D78D8C /* Build configuration list for PBXNativeTarget "LockFacebookTests.iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B32AE021E3A24D500D78D8C /* Debug */,

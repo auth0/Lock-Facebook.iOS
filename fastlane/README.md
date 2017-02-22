@@ -1,16 +1,39 @@
 fastlane documentation
 ================
 # Installation
+
+Make sure you have the latest version of the Xcode command line tools installed:
+
 ```
-sudo gem install fastlane
+xcode-select --install
 ```
+
+## Choose your installation method:
+
+<table width="100%" >
+<tr>
+<th width="33%"><a href="http://brew.sh">Homebrew</a></td>
+<th width="33%">Installer Script</td>
+<th width="33%">Rubygems</td>
+</tr>
+<tr>
+<td width="33%" align="center">macOS</td>
+<td width="33%" align="center">macOS</td>
+<td width="33%" align="center">macOS or Linux with Ruby 2.0.0 or above</td>
+</tr>
+<tr>
+<td width="33%"><code>brew cask install fastlane</code></td>
+<td width="33%"><a href="https://download.fastlane.tools/fastlane.zip">Download the zip file</a>. Then double click on the <code>install</code> script (or run it in a terminal window).</td>
+<td width="33%"><code>sudo gem install fastlane -NV</code></td>
+</tr>
+</table>
 # Available Actions
 ## iOS
-### ios pod_install
+### ios prepare_cache
 ```
-fastlane ios pod_install
+fastlane ios prepare_cache
 ```
-Run code linter
+Install dependencies from cache
 ### ios lint
 ```
 fastlane ios lint
@@ -26,13 +49,6 @@ Runs all the tests
 fastlane ios ci
 ```
 Runs all the tests in a CI environment
-### ios release
-```
-fastlane ios release
-```
-Performs the release of the library to Cocoapods & Github Releases
-
-You need to specify the type of release with the `bump` parameter with the values [major|minor|patch]
 
 ----
 
