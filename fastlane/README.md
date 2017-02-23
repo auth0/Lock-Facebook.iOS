@@ -39,6 +39,11 @@ Install dependencies from cache
 fastlane ios lint
 ```
 Run code linter
+### ios pod_lint
+```
+fastlane ios pod_lint
+```
+Run Pod lint
 ### ios test
 ```
 fastlane ios test

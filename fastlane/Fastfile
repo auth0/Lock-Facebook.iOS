@@ -21,6 +21,11 @@ platform :ios do
     )
   end
 
+  desc "Run Pod lint"
+  lane :pod_lint do
+    pod_lib_lint(allow_warnings: true, verbose: false)
+  end
+
   desc "Runs all the tests"
   lane :test do |options|
     scheme = options[:scheme]
@@ -35,7 +40,7 @@ platform :ios do
 
   desc "Runs all the tests in a CI environment"
   lane :ci do
-    ensure_git_status_clean # Until we add dangerfile check if there are changes this way
+    #ensure_git_status_clean # Until we add dangerfile check if there are changes this way
     scheme = ENV["SCHEME"]
     UI.user_error!("You must supply a valid scheme in 'SCHEME' env variable") if scheme.nil?
     options = {
@@ -44,6 +49,8 @@ platform :ios do
     }
     prepare_cache
     test(options)
+    lint
+    pod_lint
   end
 
 end
