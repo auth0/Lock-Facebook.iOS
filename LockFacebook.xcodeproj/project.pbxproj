@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B289B811E5EEFC8003CF9C1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B289B7F1E5EEFC8003CF9C1 /* Nimble.framework */; };
+		5B289B821E5EEFC8003CF9C1 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B289B801E5EEFC8003CF9C1 /* Quick.framework */; };
+		5B289B841E5EF0BA003CF9C1 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B289B7F1E5EEFC8003CF9C1 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B289B851E5EF0BA003CF9C1 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B289B801E5EEFC8003CF9C1 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5B289B8D1E5EF622003CF9C1 /* Auth0.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B32ADF41E3A24D500D78D8C /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */; };
-		5B32ADF91E3A24D500D78D8C /* LockFacebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32ADF81E3A24D500D78D8C /* LockFacebookTests.swift */; };
+		5B32ADF91E3A24D500D78D8C /* LockFacebookSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32ADF81E3A24D500D78D8C /* LockFacebookSpec.swift */; };
 		5B32ADFB1E3A24D500D78D8C /* LockFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B32ADED1E3A24D500D78D8C /* LockFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5B32AE0B1E3A253D00D78D8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32AE0A1E3A253D00D78D8C /* AppDelegate.swift */; };
 		5B32AE0D1E3A253D00D78D8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32AE0C1E3A253D00D78D8C /* ViewController.swift */; };
@@ -58,6 +63,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5B289B831E5EF0B2003CF9C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5B289B841E5EF0BA003CF9C1 /* Nimble.framework in CopyFiles */,
+				5B289B851E5EF0BA003CF9C1 /* Quick.framework in CopyFiles */,
+				5B289B8D1E5EF622003CF9C1 /* Auth0.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5B32AE1E1E3A254600D78D8C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,11 +89,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B289B7F1E5EEFC8003CF9C1 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		5B289B801E5EEFC8003CF9C1 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LockFacebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B32ADED1E3A24D500D78D8C /* LockFacebook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockFacebook.h; sourceTree = "<group>"; };
 		5B32ADEE1E3A24D500D78D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B32ADF31E3A24D500D78D8C /* LockFacebookTests.iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockFacebookTests.iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B32ADF81E3A24D500D78D8C /* LockFacebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFacebookTests.swift; sourceTree = "<group>"; };
+		5B32ADF31E3A24D500D78D8C /* LockFacebookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockFacebookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B32ADF81E3A24D500D78D8C /* LockFacebookSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockFacebookSpec.swift; sourceTree = "<group>"; };
 		5B32ADFA1E3A24D500D78D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B32AE081E3A253D00D78D8C /* LockFacebookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockFacebookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B32AE0A1E3A253D00D78D8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +133,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B289B811E5EEFC8003CF9C1 /* Nimble.framework in Frameworks */,
+				5B289B821E5EEFC8003CF9C1 /* Quick.framework in Frameworks */,
 				5B32ADF41E3A24D500D78D8C /* LockFacebook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */,
-				5B32ADF31E3A24D500D78D8C /* LockFacebookTests.iOS.xctest */,
+				5B32ADF31E3A24D500D78D8C /* LockFacebookTests.xctest */,
 				5B32AE081E3A253D00D78D8C /* LockFacebookApp.app */,
 			);
 			name = Products;
@@ -170,7 +191,7 @@
 		5B32ADF71E3A24D500D78D8C /* LockFacebookTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B32ADF81E3A24D500D78D8C /* LockFacebookTests.swift */,
+				5B32ADF81E3A24D500D78D8C /* LockFacebookSpec.swift */,
 				5B32ADFA1E3A24D500D78D8C /* Info.plist */,
 			);
 			path = LockFacebookTests;
@@ -193,6 +214,8 @@
 		5BF5ED091E5DB2F900D58104 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B289B7F1E5EEFC8003CF9C1 /* Nimble.framework */,
+				5B289B801E5EEFC8003CF9C1 /* Quick.framework */,
 				5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */,
 				5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */,
 				5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */,
@@ -244,6 +267,7 @@
 				5B32ADEF1E3A24D500D78D8C /* Sources */,
 				5B32ADF01E3A24D500D78D8C /* Frameworks */,
 				5B32ADF11E3A24D500D78D8C /* Resources */,
+				5B289B831E5EF0B2003CF9C1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -253,7 +277,7 @@
 			);
 			name = LockFacebookTests.iOS;
 			productName = LockFacebookTests;
-			productReference = 5B32ADF31E3A24D500D78D8C /* LockFacebookTests.iOS.xctest */;
+			productReference = 5B32ADF31E3A24D500D78D8C /* LockFacebookTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5B32AE071E3A253D00D78D8C /* LockFacebookApp */ = {
@@ -451,7 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B32ADF91E3A24D500D78D8C /* LockFacebookTests.swift in Sources */,
+				5B32ADF91E3A24D500D78D8C /* LockFacebookSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,10 +682,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = 769VGSJNLF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LockFacebookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebookTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LockFacebookTests;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -672,10 +700,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEVELOPMENT_TEAM = 769VGSJNLF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LockFacebookTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebookTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LockFacebookTests;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
