@@ -47,7 +47,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B32ADF21E3A24D500D78D8C"
-               BuildableName = "LockFacebookTests.iOS.xctest"
+               BuildableName = "LockFacebookTests.xctest"
                BlueprintName = "LockFacebookTests.iOS"
                ReferencedContainer = "container:LockFacebook.xcodeproj">
             </BuildableReference>

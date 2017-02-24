@@ -26,11 +26,11 @@
 		5B73CBA91E5DB4F300FDBBDD /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; };
 		5B73CBAA1E5DB4F300FDBBDD /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */; };
 		5B73CBAB1E5DB4F300FDBBDD /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */; };
-		5B73CBAC1E5DB4F300FDBBDD /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0E1E5DB2F900D58104 /* FacebookLogin.framework */; };
 		5B73CBAD1E5DB4F300FDBBDD /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0F1E5DB2F900D58104 /* FBSDKCoreKit.framework */; };
 		5B73CBAF1E5DB5D700FDBBDD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */; };
 		5B73CBB01E5DB5E700FDBBDD /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */; };
 		5BD55EBE1E3A25F90061EB78 /* LockFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD55EBD1E3A25F90061EB78 /* LockFacebook.swift */; };
+		5BE434121E6057E500950FA1 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0E1E5DB2F900D58104 /* FacebookLogin.framework */; };
 		5BF5ED111E5DB2F900D58104 /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; };
 		5BF5ED121E5DB2F900D58104 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */; };
 		5BF5ED131E5DB2F900D58104 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */; };
@@ -149,7 +149,7 @@
 				5B73CBA91E5DB4F300FDBBDD /* Auth0.framework in Frameworks */,
 				5B73CBAA1E5DB4F300FDBBDD /* Bolts.framework in Frameworks */,
 				5B73CBAB1E5DB4F300FDBBDD /* FacebookCore.framework in Frameworks */,
-				5B73CBAC1E5DB4F300FDBBDD /* FacebookLogin.framework in Frameworks */,
+				5BE434121E6057E500950FA1 /* FacebookLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +249,6 @@
 				5B32ADE71E3A24D400D78D8C /* Headers */,
 				5B32ADE81E3A24D400D78D8C /* Resources */,
 				5B6269ED1E41078600305093 /* SwiftLint */,
-				5BF5ED161E5DB35700D58104 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -438,26 +437,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "AUTH0_PLIST=\"${SRCROOT}/Auth0.plist\"\nif [ -f $AUTH0_PLIST ];\nthen\ncp \"$AUTH0_PLIST\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\"\nfi";
-		};
-		5BF5ED161E5DB35700D58104 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/FacebookCore.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FBSDKCoreKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Bolts.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FacebookLogin.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Auth0.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FBSDKLoginKit.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
