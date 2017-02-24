@@ -11,7 +11,6 @@
 		5B289B821E5EEFC8003CF9C1 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B289B801E5EEFC8003CF9C1 /* Quick.framework */; };
 		5B289B841E5EF0BA003CF9C1 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B289B7F1E5EEFC8003CF9C1 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B289B851E5EF0BA003CF9C1 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5B289B801E5EEFC8003CF9C1 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5B289B8D1E5EF622003CF9C1 /* Auth0.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5B32ADF41E3A24D500D78D8C /* LockFacebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B32ADEA1E3A24D500D78D8C /* LockFacebook.framework */; };
 		5B32ADF91E3A24D500D78D8C /* LockFacebookSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B32ADF81E3A24D500D78D8C /* LockFacebookSpec.swift */; };
 		5B32ADFB1E3A24D500D78D8C /* LockFacebook.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B32ADED1E3A24D500D78D8C /* LockFacebook.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -71,7 +70,6 @@
 			files = (
 				5B289B841E5EF0BA003CF9C1 /* Nimble.framework in CopyFiles */,
 				5B289B851E5EF0BA003CF9C1 /* Quick.framework in CopyFiles */,
-				5B289B8D1E5EF622003CF9C1 /* Auth0.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +105,7 @@
 		5B6269EB1E40D43600305093 /* FacebookNativeTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookNativeTransaction.swift; sourceTree = "<group>"; };
 		5B73CBAE1E5DB5D700FDBBDD /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Carthage/Build/iOS/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		5BD55EBD1E3A25F90061EB78 /* LockFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockFacebook.swift; sourceTree = "<group>"; };
-		5BD6D4951E3A2AC000015581 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		5BE434131E605B3000950FA1 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = SOURCE_ROOT; };
 		5BF5ED0B1E5DB2F900D58104 /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
 		5BF5ED0C1E5DB2F900D58104 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Carthage/Build/iOS/Bolts.framework; sourceTree = "<group>"; };
 		5BF5ED0D1E5DB2F900D58104 /* FacebookCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookCore.framework; path = Carthage/Build/iOS/FacebookCore.framework; sourceTree = "<group>"; };
@@ -200,7 +198,7 @@
 		5B32AE091E3A253D00D78D8C /* LockFacebookApp */ = {
 			isa = PBXGroup;
 			children = (
-				5BD6D4951E3A2AC000015581 /* Auth0.plist */,
+				5BE434131E605B3000950FA1 /* Auth0.plist */,
 				5B32AE0A1E3A253D00D78D8C /* AppDelegate.swift */,
 				5B32AE0C1E3A253D00D78D8C /* ViewController.swift */,
 				5B32AE0E1E3A253D00D78D8C /* Main.storyboard */,
@@ -320,6 +318,7 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 769VGSJNLF;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 5B32AE071E3A253D00D78D8C;
 					};
 					5B32AE071E3A253D00D78D8C = {
 						CreatedOnToolsVersion = 8.2;
@@ -670,6 +669,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebookTests;
 				PRODUCT_NAME = LockFacebookTests;
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LockFacebookApp.app/LockFacebookApp";
 			};
 			name = Debug;
 		};
@@ -688,6 +688,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.auth0.LockFacebookTests;
 				PRODUCT_NAME = LockFacebookTests;
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LockFacebookApp.app/LockFacebookApp";
 			};
 			name = Release;
 		};
